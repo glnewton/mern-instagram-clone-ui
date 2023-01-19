@@ -1,0 +1,148 @@
+.message {
+    margin: 40px 0;
+    width: 616px;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../images/heart.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 95%;
+    margin: 0 5px 0 0;
+  }
+
+  .status, .messageHeader, .author {
+      display: flex;
+  }
+
+  .messageHeader {
+      flex-direction: row;
+      height: 60px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4px 0 18px;
+  }
+
+  .author {
+      flex-direction: row;
+      align-items: center;
+  }
+
+  .authorImage {
+    /* background: #C4C4C4; */
+    background: #1b1b1b;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .imgContainer{
+      display: flex;
+      width: 614px;
+      height: 614px;
+      background: #1b1b1b;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .imgContainer > img {
+      width: 614px;
+      height: 614px;
+      object-fit: cover;
+}
+
+.messageFooter{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; */
+    /* padding: 18px 18px 18px 18px; */
+}
+
+.likes, .totalComments {
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.3px;
+    color: #ABABAB;
+    padding-right: 5px;
+  }
+
+  .messageInfo {
+    text-align: left;
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .messageInfo p {
+      margin: 5px 0;
+  }
+
+  .messageInfo a {
+      text-decoration: none;
+      color: #ABABAB;
+      margin: 5px 0;
+  }
+
+  .DropDownMenu {
+      width: 32px;
+      height: 26px;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border: none;
+  }
+
+  .DropDownMenu:hover {
+    background: rgba(143, 143, 143, 0.19);
+  }
+
+  .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #262626;
+      margin: 0 1px;
+  }
+
+
+
+  .more {
+      display: none;
+  }
+
+  .deleteButton{
+      display: none;
+  }
+
+  .showDelete {
+      display: initial;
+  }
+
+  .profilePic{
+    /* background: #C4C4C4; */
+    background: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .description{
+    padding : 0 20px ;
+  }
+
+  .messageOptions{
+    margin : 15px 0 ;
+  }
