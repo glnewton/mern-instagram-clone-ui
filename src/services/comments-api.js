@@ -1,6 +1,6 @@
-//const baseURL = 'http://localhost:3001/comments/'
+const baseURL = 'http://localhost:3001/comments/'
 
-const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
+//const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
 
 //Works
 const getAllComments = async () => {
