@@ -1,11 +1,12 @@
-/* .comment {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-} */
+.comment {
+    text-align: left;
+    padding: 0 15px;
+    font-size: 15px;
+  }
 
 .commentLine{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+

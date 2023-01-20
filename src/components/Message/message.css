@@ -8,15 +8,28 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.heart {
-    width: 20px;
-    height: 20px;
-    background-image: url('../../images/heart.png');
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: 95%;
+.fa-heart {
+    width: 18px;
+    height: 18px;
+    color: rgb(248, 170, 183);
     margin: 0 5px 0 0;
+  }
+  
+.fa-heart:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+.fa-heart.clicked {
+    animation: flash-red 2s linear;
+}
+
+@keyframes flash-red {
+    0% { color: rgb(248, 170, 183); }
+    25% { color: rgb(240, 117, 117)k; }
+    50% { color: red; }
+    75% { color: rgb(240, 117, 117); }
+    100% { color: rgb(248, 170, 183); }
   }
 
   .status, .messageHeader, .author {
@@ -38,7 +51,8 @@
 
   .authorImage {
     /* background: #C4C4C4; */
-    background: #1b1b1b;
+    /* background: #1b1b1b; */
+    background-image: url('../../images/testProfilePic.png');
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -117,7 +131,6 @@
   }
 
 
-
   .more {
       display: none;
   }
@@ -146,3 +159,23 @@
   .messageOptions{
     margin : 15px 0 ;
   }
+
+  .addCommentSection{
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; */
+    padding: 0 15px;
+  }
+
+  .messageText {
+    text-align: left;
+    padding: 0 15px 8px 15px;
+    font-size: 15px;
+  }
+
+.messageTextLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,15 +1,22 @@
 import './profilePage.css'
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../../services/firebase';
+import { getAuth, updateProfile } from "firebase/auth";
 
-const ProfilePage = ({isLoggedIn, currentUser}) => {
+
+const ProfilePage = ({ isLoggedIn, currentUser }) => {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
+    const [photoURL, setPhotoURL] = useState('');
 
     useEffect(() => {
+
         const unsubscribe = auth.onAuthStateChanged(currentUser => {
             if (currentUser) {
                 setUser(currentUser);
@@ -23,34 +30,44 @@ const ProfilePage = ({isLoggedIn, currentUser}) => {
     }, []);
 
     const handleUpdateProfile = async () => {
-        try {
-            const updatedUser = auth.currentUser;
-            await updatedUser.updateEmail(email);
-            await updatedUser.updatePassword(password);
-            await updatedUser.updateProfile({ displayName });
-            alert("Profile updated successfully!");
-        } catch (error) {
-            switch (error.code) {
-                case 'auth/email-already-in-use':
-                    alert('The email address is already in use by another account.');
-                    break;
-                case 'auth/invalid-email':
-                    alert('The email address is not valid.');
-                    break;
-                case 'auth/wrong-password':
-                    alert('The password is incorrect.');
-                    break;
-                case 'auth/weak-password':
-                    alert('The password is not strong enough.');
-                    break;
-                default:
-                    alert('An error occurred. Please try again later.');
-                    console.error(error);
-            }
-        }
+        try{
+            const auth = getAuth();
+            updateProfile(auth.currentUser, {
+                displayName: displayName, 
+                photoURL: photoURL || "https://example.com/jane-q-user/profile.jpg"
+            })
+        }   
+        catch(error) {
+            // An error occurred
+        };
+        navigate("/");
     }
 
-    if (!user) return null;
+    // const handleUpdateProfile = async () => {
+    //     console.log("handleUpdateProfile clicked")
+    //     try {
+    //         const updatedUser = auth.currentUser;
+    //         const credential = auth.EmailAuthProvider.credential(
+    //             updatedUser.email,
+    //             password
+    //         );
+    //         await updatedUser.reauthenticateWithCredential(credential);
+    //         await updatedUser.updateEmail(email);
+    //         await updatedUser.updatePassword(newPassword);
+    //         await auth.currentUser.updateProfile({displayName: displayName});
+    //         console.log("updatedUser", updatedUser)
+    //         alert("Profile updated successfully!");
+    //     } catch (error) {
+    //         // Handle different error codes
+    //     }
+    // }
+
+
+
+    if (!user) {
+        navigate("/login");
+        return null;
+    }
 
     return (
         <main className="profilePage page">
@@ -66,7 +83,6 @@ const ProfilePage = ({isLoggedIn, currentUser}) => {
                                             Display name
                                         </label>
                                         <input
-
                                             type="text"
                                             label="Display name"
                                             value={displayName}
@@ -121,7 +137,7 @@ const ProfilePage = ({isLoggedIn, currentUser}) => {
                                     type="button"
                                     onClick={handleUpdateProfile}
                                 >
-                                    Update profile
+                                    Update Profile
                                 </button>
                             </div>
                         </form>

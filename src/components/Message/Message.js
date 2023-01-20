@@ -1,17 +1,65 @@
 import './message.css';
-//import Comment from '../Comment/Comment.js';
-import { useState } from "react";
+import profilePic from '../../images/testProfilePic.png';
+import testMessagePic from '../../images/testMessagePic.jpeg';
+
+
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteMessage } from "../../services/messages-api.js";
+
+import { editMessage, deleteMessage } from "../../services/messages-api.js";
+
+import Comment from '../Comment/Comment';
 import CommentFeed from '../CommentFeed/CommentFeed';
-// import { createComment } from "../services/comments-api.js";
-// import { getAllComments } from "../services/comments-api.js";
-import Comment from "../Comment/Comment.js";
+import { createComment, getAllComments } from "../../services/comments-api.js";
+
+import { getAuth, updateProfile } from "firebase/auth"
+
+//import the font awesome heart icon
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 
 export default function Message({ element }) {
+  console.log(element);
+
   const nav = useNavigate()
-  // const [comments, setComments] = useState([]);
-  // const [commentText, setCommentText] = useState("");
+
+  const [likes, setLikes] = useState(element.likes);
+  const [numberOfComments, setNumberOfComments] = useState(element.comments);
+  const [addCommentText, setAddCommentText] = useState("");
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    getAllComments()
+      .then(response => {
+        setComments(response);
+      })
+      .catch(error => console.log(error))
+  }, []);
+
+  const handleHeartClick = async () => {
+    console.log("heart clicked")
+    if(element.likes === null){
+      element.likes = 0
+    }
+    else if(element.likes === NaN){
+      element.likes = 0
+    }
+    setLikes(likes + 1);
+    const updatedMessage = {...element, likes: element.likes + 1};
+    try {
+      await editMessage(element._id, updatedMessage);
+      const heart = document.querySelector('.fa-heart');
+      heart.classList.add('clicked');
+      setTimeout(() => {
+        heart.classList.remove('clicked');
+      }, 2000);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   const deleteTheMessage = async () => {
     try {
@@ -22,45 +70,84 @@ export default function Message({ element }) {
     }
   }
 
+  const handleAddComment = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    let newComment = {
+      messageId: element._id,
+      text: addCommentText,
+      userName: user.displayName || "anonymous",
+      userProfileImage: user.photoURL || "testProfilePic.png",
+      createdDate: "2021-09-01T00:00:00.000Z" || new Date().toISOString()
+    }
+    try {
+      console.log('payload:', newComment);
+      await createComment(newComment);
+      console.log("comment added....trying to update message comments+1")
+      updateMessageWithNewComment();
+      setAddCommentText(""); //clear the input field after adding comment
+      setComments([...comments, newComment])
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  const updateMessageWithNewComment = async () => {
+    const updatedMessage = {...element, comments: element.comments + 1};
+    try {
+      await editMessage(element._id, updatedMessage);
+      setNumberOfComments(numberOfComments + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="message">
         <div className="messageHeader">
           <div className="author">
-            <img className="authorImage" src={'../../images/testProfilePic.png' || 'https://via.placeholder.com/40'} alt="AuthorIcon" />
+            <img className="authorImage" src={profilePic} alt="AuthorIcon" />
             {element.userName}
           </div>
-          {/* <div className="author">
-            {props.data.user.profileImageUrl ? <img data-testid="profileImage" className="authorImage" src={props.data.user.profileImageUrl} alt="AuthorIcon" /> : <div className="authorImage" data-testid="defaultImage" />}
-            <span>{element.userName}</span>
-          </div> */}
-
+          <div className="DropDownMenu">
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="deleteButton">Delete</div>
+          </div>
         </div> {/*end of messageHeader*/}
 
         <div className="imgContainer">
-          <img src={element.imageUrl || 'https://via.placeholder.com/613.99'} alt="messageImage" />
+          <img src={testMessagePic || element.imageUrl} alt="messageImage" />
         </div> {/*end of imgContainer*/}
 
         <div className="messageFooter">
 
           <div className="messageInfo">
             <div className="status">
-              <div className="heart"></div>
-              <div className="likes">{element.likes || 0} likes</div>
-              <div className="totalComments">{element.comments || 0} comments</div>
+              <FontAwesomeIcon icon={faHeart } onClick={handleHeartClick} />
+              <div className="likes">{likes} likes</div>
+              <div className="totalComments">{numberOfComments || 0} comments</div>
             </div>
           </div> {/*end of messageInfo*/}
 
-          <div className="description">
-            <Comment element={element} />
-            {/* <p><b>{element.userName}</b> {element.message} <a href className="more"> more</a></p> */}
-          </div> {/*end of description*/}
-          <div className="addCommentSection">
-            {/* <CommentFeed messageId={element._id}/> */}
-            <div className="commentInput">
-              <input type="text" placeholder="Add a comment..." />
-              <button >Add Comment</button>
+          <div className="messageText">
+            <div className="messageTextLine">
+              <b>{element.userName}</b> {element.message} 
             </div>
+            {/* <hr/> */}
+          </div> {/*end of messageText*/}
+
+          <div className="commentSection">
+            <CommentFeed messageId={element._id} comments={comments} />
+            <div className="addCommentSection">
+              <div className="commentInput">
+                <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
+                <button onClick={handleAddComment}>Add Comment</button>
+              </div> {/*end of commentInput*/}
+            </div> {/*end of addCommentSection*/}
           </div> {/*end of commentSection*/}
 
           <div className="messageOptions">
@@ -76,91 +163,9 @@ export default function Message({ element }) {
         </div> {/*end of messageFooter*/}
 
       </div> {/*end of message*/}
-
-
-
-      {/* <div className="comments">
-            <div className="commentInput">
-              <input type="text" placeholder="Add a comment..." value={commentText} onChange={(e) => setCommentText(e.target.value)} />
-              <button onClick={createTheComment}>Post</button>
-            </div>
-            {comments.map((comment) => {
-              return <Comment key={comment._id} data={comment} />
-            })}
-          </div> */}
     </>
   );
 }
 
-
-
-
-// const Post = (props) => {
-
-//   const [numComments, setNumComments] = useState(0);
-
-//   const updateNumComments = (numberComments) => {
-//     setNumComments(numberComments);
-//   }
-
 //   const commentText = numComments === 1 ? "comment" : "comments";
 
-//   return (
-//     <div className="post">
-
-//       <div className="postHeader">
-//         <div className="author">
-//           {props.data.user.profileImageUrl ? <img data-testid="profileImage" className="authorImage" src={props.data.user.profileImageUrl} alt="AuthorIcon" /> : <div className="authorImage" data-testid="defaultImage" />}
-//           <span>{props.data.user.username}</span>
-//         </div>
-//         <div>
-//           <div className="DropDownMenu">
-//             <div className="dot"></div>
-//             <div className="dot"></div>
-//             <div className="dot"></div>
-//             <div className="deleteButton">Delete</div>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="imgContainer">
-//         <img src={props.data.imageUrl} alt="postImage" />
-//       </div>
-
-//       <div className="PostInfo">
-//         <div className="status">
-//           <div className="heart"></div>
-//           <span className="likes">0 likes {numComments} {commentText}</span>
-//         </div>
-//         <div className="description">
-//           <p><b>{props.data.user.username}</b> {props.data.message} <a className="more">more</a></p>
-//         </div>
-//         {/* <div className="commentSection">
-//           <Comment postId={props.data.id}
-//             updateNumComments={updateNumComments}
-//           />
-//         </div> */}
-//       </div>
-
-//     </div>
-//   );
-// }
-
-{/* <div className="messageFooter">
-            <div className="messageFooterLeft">
-              <button className="likeButton">
-                <i className="far fa-heart"></i>
-              </button>
-              <button className="commentButton">
-                <i className="far fa-comment"></i>
-              </button>
-              <button className="shareButton">
-                <i className="far fa-paper-plane"></i>
-              </button>
-            </div>
-            <div className="messageFooterRight">
-              <button className="saveButton">
-                <i className="far fa-bookmark"></i>
-              </button>
-            </div>
-          </div> */}
