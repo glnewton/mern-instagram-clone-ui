@@ -1,13 +1,22 @@
-//const baseURL = "http://localhost:3001/messages/"
+//const baseURL = 'http://localhost:3001/messages/'
 
-const baseURL = process.env.REACT_APP_BACKEND_API + "/messages/"  || "http://localhost:3001/messages/"
+let baseURL = ""
 
+if (process.env.NODE_ENV === 'production') {
+    baseURL = `${process.env.REACT_APP_BACKEND_API}` + "/messages/"
+}
+else {
+    baseURL = 'http://localhost:3001' + "/messages/"
+}
 
 //Works
 const getAllMessages = async () => {
     try {
+        console.log("Process", process.env)
+        console.log(baseURL)
         const URL = `${baseURL}`
         const response = await fetch(URL);
+        console.log(response)
         if (!response.ok) {
             throw new Error(response.statusText);
         }
