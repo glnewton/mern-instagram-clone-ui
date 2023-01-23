@@ -21,7 +21,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 const baseURL = process.env.REACT_APP_BACKEND_API + "/images"  || "http://localhost:3001/images"
 
 export default function Message({ element }) {
-  console.log(element);
+  // console.log(element);
 
   const nav = useNavigate()
   const location = useLocation();
@@ -113,6 +113,18 @@ export default function Message({ element }) {
     }
   }
 
+  const updateComments = async () => {
+    try {
+      const response = await getAllComments()
+      setComments(response);
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+  
+
+
   return (
     <>
       <div className="message">
@@ -153,7 +165,7 @@ export default function Message({ element }) {
           </div> {/*end of messageText*/}
 
           <div className="commentSection">
-            <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} />
+            <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} updateComments={updateComments} />
             <div className="addCommentSection">
               <div className="commentInput">
                 <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />

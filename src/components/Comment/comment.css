@@ -10,18 +10,6 @@
     transition: background-color 0.2s ease;
     position: relative; /* Add this to create a new positioning context */
 }
-.text-container{
-  flex: 1; /* This will make the text container take up all the available space */
-  display: flex;
-  justify-content: space-between;
-  margin-right: 10px; /* This will create some space between the text and the icons */
-}
-.icon-container{
-  display: flex;
-  justify-content: flex-end; /* This will align the icons to the right */
-}
-
-
 
 .commentLine:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -35,6 +23,18 @@
   background-color: rgba(0,0,0,0.2);
 }
 
+.text-container{
+  flex: 1; /* This will make the text container take up all the available space */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px; /* This will create some space between the text and the icons */
+}
+.icon-container{
+  display: flex;
+  justify-content: flex-end; /* This will align the icons to the right */
+}
+
+
 .comment-icon {
   margin-left: 10px;
   cursor: pointer;
@@ -43,4 +43,15 @@
 
 .comment-icon:hover {
   color: #333;
+}
+
+textarea {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: #f5f5f5; add a light gray background color */
+  padding: 8px; /* add some padding to the textarea */
+  font-size: 16px; /* adjust the font size */
+  height: 15px;
+
+  border: none;
+  resize: none;
 }

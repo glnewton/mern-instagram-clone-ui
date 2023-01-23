@@ -1,6 +1,6 @@
-const baseURL = 'http://localhost:3001/comments/'
+//const baseURL = 'http://localhost:3001/comments/'
 
-//const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
+const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
 
 // Gets all comments
 const getAllComments = async () => {
@@ -99,6 +99,7 @@ const deleteComment = async (id) => {
 }
 // Updates a single comment
 const editComment = async (id, updatedComment) => {
+    console.log(updatedComment)
     try {
         const URL = `${baseURL}${id}`;
         const response = await fetch(URL, {
@@ -106,14 +107,15 @@ const editComment = async (id, updatedComment) => {
             body: JSON.stringify(updatedComment),
             headers: {
                 'Content-Type': 'application/json',
-                // 'Access-Control-Allow-Origin': '*',
-                // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
             }
         });
         if (!response.ok) {
             throw new Error(response.statusText);
         }
-        return response.json();
+        return response.status
+        ();
     } catch (error) {
         console.error(error);
     }
