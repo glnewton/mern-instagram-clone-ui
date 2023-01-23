@@ -1,7 +1,7 @@
 import Comment from '../Comment/Comment';
 import './commentFeed.css';
      
-export default function CommentFeed({comments, messageId}) {
+export default function CommentFeed({comments, messageId, removeComment}) {
     
 
 
@@ -10,7 +10,7 @@ export default function CommentFeed({comments, messageId}) {
 
       {comments.filter(comment => comment.messageId === messageId)
                .map(comment =>
-                  <Comment key={comment._id} comment={comment} />
+                  <Comment key={comment._id} comment={comment} removeComment={removeComment} />
       )}
     </div>
   )

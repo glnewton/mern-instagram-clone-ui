@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function Comment({ comment }) {
-
+export default function Comment({ comment, removeComment }) {
+    // const [comment, setComment] = useState(comment);
     const [selectedCommentId, setSelectedCommentId] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -21,11 +21,13 @@ export default function Comment({ comment }) {
         }
     }
 
-    const handleDelete = async () => {
+    const handleDeleteComment = async () => {
         try {
             await deleteComment(comment._id);
             setIsEditing(false);
+            setIsDeleting(false)
             setSelectedCommentId(null);
+            removeComment(comment._id); // use the callback function
         }
         catch (error) {
             console.log(error);
@@ -49,14 +51,13 @@ export default function Comment({ comment }) {
     }
 
     return (
-
         <div className="comment">
             <div className={`commentLine ${selectedCommentId === comment._id ? 'selected' : ''}`} onClick={handleClick}>
-
-
                 {isEditing ? (
                     <>
-                        <textarea value={text} onChange={e => setText(e.target.value)} />
+                        <div className="text-container">
+                            <textarea value={text} onChange={e => setText(e.target.value)} />
+                        </div>
                         <div className="icon-container">
                             <FontAwesomeIcon icon={faCheck} className="comment-icon" onClick={handleEdit} />
                             <FontAwesomeIcon icon={faTimes} className="comment-icon" onClick={() => setIsEditing(false)} />
@@ -64,7 +65,10 @@ export default function Comment({ comment }) {
                     </>
                 ) : (
                     <>
-                        <b>{comment.userName}</b> {comment && comment.text}
+                        {comment && (isDeleting ? <FontAwesomeIcon icon={faTrash} className="comment-icon" style={{marginRight: 10}}/> : null)}
+                        <div className="text-container">
+                            <b>{comment.userName}</b> {comment && (isDeleting ? `Delete this comment?` : comment.text)}
+                        </div>
                         {selectedCommentId === comment._id && (
                             <div className="icon-container">
                                 <FontAwesomeIcon icon={faPen} className="comment-icon" onClick={() => setIsEditing(true) && setIsDeleting(false)} />
@@ -79,7 +83,7 @@ export default function Comment({ comment }) {
                     isDeleting ? (
                         <div className="delete-container">
                             <div className="icon-container">
-                                <FontAwesomeIcon icon={faCheck} className="comment-icon" onClick={handleDelete} />
+                                <FontAwesomeIcon icon={faCheck} className="comment-icon" onClick={handleDeleteComment} />
                                 <FontAwesomeIcon icon={faTimes} className="comment-icon" onClick={() => setIsDeleting(false)} />
                             </div>
                         </div>
@@ -87,29 +91,6 @@ export default function Comment({ comment }) {
                 }
             </div>
         </div>
-
-
     )
 }
 ;
-
-
-        // <div className="comment">
-        //     {editMode ? (
-        //         <>
-        //             <textarea value={text} onChange={e => setText(e.target.value)} />
-        //             <button onClick={handleUpdate}>Save</button>
-        //         </>
-        //     ) : (
-        //         <>
-        //             <div className="comment-text">
-        //                 <b>{comment.userName}</b> {text}
-        //             </div>
-        //             <div className="comment-actions">
-        //                 <button onClick={() => setEditMode(true)}>Edit</button>
-        //                 <button onClick={handleDelete}>Delete</button>
-        //             </div>
-        //         </>
-        //     )}
-        // </div>
-

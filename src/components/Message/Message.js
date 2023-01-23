@@ -16,6 +16,9 @@ import { getAuth, updateProfile } from "firebase/auth"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
+//import getImageViaProxy from '../../services/get-image-via-proxy.js';
+
+const baseURL = process.env.REACT_APP_BACKEND_API + "/images"  || "http://localhost:3001/images"
 
 export default function Message({ element }) {
   console.log(element);
@@ -24,8 +27,11 @@ export default function Message({ element }) {
   const location = useLocation();
   const isViewMessagePage = location.pathname.startsWith('/view-message/');
 
+  const [imageUrl, setImageUrl] = useState(element.imageUrl);
   const [likes, setLikes] = useState(element.likes);
   const [numberOfComments, setNumberOfComments] = useState(element.comments);
+
+
   const [addCommentText, setAddCommentText] = useState("");
   const [comments, setComments] = useState([]);
 
@@ -60,7 +66,6 @@ export default function Message({ element }) {
     }
   }
 
-
   const deleteTheMessage = async () => {
     try {
       await deleteMessage(element._id); // service in messages-api
@@ -93,6 +98,11 @@ export default function Message({ element }) {
     }
   }
 
+  const removeComment = commentId => {
+      setComments(comments.filter(comment => comment._id !== commentId));
+      setNumberOfComments(numberOfComments - 1);
+  };
+
   const updateMessageWithNewComment = async () => {
     const updatedMessage = { ...element, comments: element.comments + 1 };
     try {
@@ -108,7 +118,7 @@ export default function Message({ element }) {
       <div className="message">
         <div className="messageHeader">
           <div className="author">
-            <img className="authorImage" src={element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous"/>
+            <img className="authorImage" src={imageUrl || element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous" />
             {element.userName}
           </div>
           <div className="DropDownMenu">
@@ -121,7 +131,7 @@ export default function Message({ element }) {
 
         <Link to={`/view-message/${element._id}`}>
           <div className="imgContainer">
-            <img src={element.imageUrl || testMessagePic} alt="messageImage" crossOrigin="anonymous"/>
+            <img src={element.imageUrl || testMessagePic} alt="messageImage" crossOrigin="anonymous" />
           </div> {/*end of imgContainer*/}
         </Link>
 
@@ -143,7 +153,7 @@ export default function Message({ element }) {
           </div> {/*end of messageText*/}
 
           <div className="commentSection">
-            <CommentFeed messageId={element._id} comments={comments} />
+            <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} />
             <div className="addCommentSection">
               <div className="commentInput">
                 <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
@@ -165,7 +175,7 @@ export default function Message({ element }) {
               </button>
             </div>
           )
-         } {/*end of messageOptions*/}
+          } {/*end of messageOptions*/}
         </div> {/*end of messageFooter*/}
       </div> {/*end of message*/}
     </>

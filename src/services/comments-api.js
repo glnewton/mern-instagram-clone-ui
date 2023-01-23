@@ -92,7 +92,7 @@ const deleteComment = async (id) => {
         if (!response.ok) {
             throw new Error(response.statusText);
         }
-        return response.json();
+        return response.status
     } catch (error) {
         console.error(error);
     }

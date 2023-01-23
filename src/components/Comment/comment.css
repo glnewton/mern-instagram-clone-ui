@@ -6,10 +6,22 @@
 
 .commentLine{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: background-color 0.2s ease;
+    position: relative; /* Add this to create a new positioning context */
 }
+.text-container{
+  flex: 1; /* This will make the text container take up all the available space */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px; /* This will create some space between the text and the icons */
+}
+.icon-container{
+  display: flex;
+  justify-content: flex-end; /* This will align the icons to the right */
+}
+
+
 
 .commentLine:hover {
   background-color: rgba(0, 0, 0, 0.1);
