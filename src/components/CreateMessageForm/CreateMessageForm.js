@@ -1,7 +1,3 @@
-// Create a fprm that allows the user to create a new message
-//
-// Compare this snippet from  mern-instagram-clone-ui\src\pages\CreateMessagePage\createMessagePage.js
-
 import { useState } from "react";
 import { createMessage } from "../../services/messages-api";
 import { useNavigate } from "react-router-dom";

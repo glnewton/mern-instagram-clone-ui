@@ -8,5 +8,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.2s ease;
 }
 
+.commentLine:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.commentLine:active {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.selected{
+  background-color: rgba(0,0,0,0.2);
+}
+
+.comment-icon {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #777;
+}
+
+.comment-icon:hover {
+  color: #333;
+}

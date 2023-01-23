@@ -1,6 +1,3 @@
-//Create a new component called EditMessagePage.js that will be a form that allows the user to edit a message based on the id passed in as a prop
-//Compare this snippet from mern-instagram-clone-ui\src\pages\CreatMessagePage\CreateMessagePage.js:
-//
 import './editMessagePage.css';
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";

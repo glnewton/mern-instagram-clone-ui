@@ -4,17 +4,15 @@ import testMessagePic from '../../images/testMessagePic.jpeg';
 
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { editMessage, deleteMessage } from "../../services/messages-api.js";
 
-import Comment from '../Comment/Comment';
 import CommentFeed from '../CommentFeed/CommentFeed';
-import { createComment, getAllComments } from "../../services/comments-api.js";
+import { createComment, getAllComments, getAllCommentsByMessage } from "../../services/comments-api.js";
 
 import { getAuth, updateProfile } from "firebase/auth"
 
-//import the font awesome heart icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
@@ -23,6 +21,8 @@ export default function Message({ element }) {
   console.log(element);
 
   const nav = useNavigate()
+  const location = useLocation();
+  const isViewMessagePage = location.pathname.startsWith('/view-message/');
 
   const [likes, setLikes] = useState(element.likes);
   const [numberOfComments, setNumberOfComments] = useState(element.comments);
@@ -39,14 +39,14 @@ export default function Message({ element }) {
 
   const handleHeartClick = async () => {
     console.log("heart clicked")
-    if(element.likes === null){
+    if (element.likes === null) {
       element.likes = 0
     }
-    else if(element.likes === NaN){
+    else if (isNaN(element.likes)) {
       element.likes = 0
     }
     setLikes(likes + 1);
-    const updatedMessage = {...element, likes: element.likes + 1};
+    const updatedMessage = { ...element, likes: element.likes + 1 };
     try {
       await editMessage(element._id, updatedMessage);
       const heart = document.querySelector('.fa-heart');
@@ -94,7 +94,7 @@ export default function Message({ element }) {
   }
 
   const updateMessageWithNewComment = async () => {
-    const updatedMessage = {...element, comments: element.comments + 1};
+    const updatedMessage = { ...element, comments: element.comments + 1 };
     try {
       await editMessage(element._id, updatedMessage);
       setNumberOfComments(numberOfComments + 1);
@@ -108,7 +108,7 @@ export default function Message({ element }) {
       <div className="message">
         <div className="messageHeader">
           <div className="author">
-            <img className="authorImage" src={profilePic} alt="AuthorIcon" />
+            <img className="authorImage" src={element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous"/>
             {element.userName}
           </div>
           <div className="DropDownMenu">
@@ -119,15 +119,17 @@ export default function Message({ element }) {
           </div>
         </div> {/*end of messageHeader*/}
 
-        <div className="imgContainer">
-          <img src={testMessagePic || element.imageUrl} alt="messageImage" />
-        </div> {/*end of imgContainer*/}
+        <Link to={`/view-message/${element._id}`}>
+          <div className="imgContainer">
+            <img src={element.imageUrl || testMessagePic} alt="messageImage" crossOrigin="anonymous"/>
+          </div> {/*end of imgContainer*/}
+        </Link>
 
         <div className="messageFooter">
 
           <div className="messageInfo">
             <div className="status">
-              <FontAwesomeIcon icon={faHeart } onClick={handleHeartClick} />
+              <FontAwesomeIcon icon={faHeart} onClick={handleHeartClick} />
               <div className="likes">{likes} likes</div>
               <div className="totalComments">{numberOfComments || 0} comments</div>
             </div>
@@ -135,7 +137,7 @@ export default function Message({ element }) {
 
           <div className="messageText">
             <div className="messageTextLine">
-              <b>{element.userName}</b> {element.message} 
+              <b>{element.userName}</b> {element.message}
             </div>
             {/* <hr/> */}
           </div> {/*end of messageText*/}
@@ -150,18 +152,21 @@ export default function Message({ element }) {
             </div> {/*end of addCommentSection*/}
           </div> {/*end of commentSection*/}
 
-          <div className="messageOptions">
-            <Link to={`/view-message/${element._id}`}>
-              <button>View</button>
-            </Link>
-            <Link to={`/edit-message/${element._id}`}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={deleteTheMessage}>Delete</button>
-          </div> {/*end of messageOptions*/}
-
+          {isViewMessagePage && (
+            <div className="messageOptions">
+              <Link to={`/view-message/${element._id}`}>
+                <button>View</button>
+              </Link>
+              <Link to={`/edit-message/${element._id}`}>
+                <button>Edit</button>
+              </Link>
+              <button onClick={deleteTheMessage}>
+                Delete
+              </button>
+            </div>
+          )
+         } {/*end of messageOptions*/}
         </div> {/*end of messageFooter*/}
-
       </div> {/*end of message*/}
     </>
   );
@@ -169,3 +174,4 @@ export default function Message({ element }) {
 
 //   const commentText = numComments === 1 ? "comment" : "comments";
 
+//:(const messageOptions = document.querySelector('.messageOptions');  messageOptions.classList.add('buffer');) 

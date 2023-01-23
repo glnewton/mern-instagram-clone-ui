@@ -2,7 +2,7 @@ const baseURL = 'http://localhost:3001/comments/'
 
 //const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
 
-//Works
+// Gets all comments
 const getAllComments = async () => {
     try {
         const URL = `${baseURL}`
@@ -21,10 +21,10 @@ const getAllComments = async () => {
         console.error(error)
     }
 }
-//Works
-const getComment = async (id) => {
+// Gets a single comment by commentId
+const getComment = async (commentId) => {
     try {
-        const URL = `${baseURL}${id}`
+        const URL = `${baseURL}${commentId}`
         const response = await fetch(URL);
         if (!response.ok) {
             throw new Error(response.statusText);
@@ -34,7 +34,55 @@ const getComment = async (id) => {
         console.error(error);
     }
 }
-//Works
+
+// Gets all comments by userId
+const getAllCommentsByUser = async (userId) => {
+    try {
+        const URL = `${baseURL}user/${userId}`
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
+
+
+// Gets all comments by messageId
+const getAllCommentsByMessage = async (messageId) => {
+    try {
+        const URL = `${baseURL}message/${messageId}`
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
+// 
+// create the route in the backend
+// router.get('/comments/user/:userId', async (req, res) => {
+//     try {
+//         const foundComments = await Comment.find({ user: req.params.userId });
+//         res.json(foundComments);
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// });
+
+
+
+// Deletes a single comment
 const deleteComment = async (id) => {
     try {
         const URL = `${baseURL}${id}`;
@@ -49,7 +97,7 @@ const deleteComment = async (id) => {
         console.error(error);
     }
 }
-//Works
+// Updates a single comment
 const editComment = async (id, updatedComment) => {
     try {
         const URL = `${baseURL}${id}`;
@@ -57,7 +105,9 @@ const editComment = async (id, updatedComment) => {
             method: 'PUT',
             body: JSON.stringify(updatedComment),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
             }
         });
         if (!response.ok) {
@@ -68,7 +118,7 @@ const editComment = async (id, updatedComment) => {
         console.error(error);
     }
 }
-//Works
+// Creates a single comment
 const createComment = async (comment) => {
     try {
         const URL = `${baseURL}`
@@ -89,4 +139,4 @@ const createComment = async (comment) => {
     }
 }
 
-export { createComment, getAllComments, getComment, editComment, deleteComment }
+export { createComment, getAllComments, getAllCommentsByMessage, getAllCommentsByUser, getComment, editComment, deleteComment }

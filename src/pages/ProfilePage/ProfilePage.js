@@ -149,3 +149,8 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
 }
 
 export default ProfilePage;
+
+// Yes, Firebase User objects have unique ids that are generated when the user is created. These ids are called uid and can be accessed using the user.uid property. The uid is a string that is guaranteed to be unique across all users of your app, and is also guaranteed to be stable for the lifetime of a user (i.e. it will not change for a user even if the user changes their email or password). This makes it useful as a key for storing user-related data in your Firebase Realtime Database or Firestore.
+
+
+

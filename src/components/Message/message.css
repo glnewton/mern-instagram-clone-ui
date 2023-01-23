@@ -1,181 +1,194 @@
 .message {
-    margin: 40px 0;
-    width: 616px;
-    background: #FFFFFF;
-    border: 1px solid #E6E6E6;
-    box-sizing: border-box;
-    border-radius: 2px;
-    font-family: 'Roboto', sans-serif;
+  margin: 2.5rem 0;
+  width: 38.5rem;
+  background: #FFFFFF;
+  border: 0.0625rem solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 0.125rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .fa-heart {
-    width: 18px;
-    height: 18px;
-    color: rgb(248, 170, 183);
-    margin: 0 5px 0 0;
-  }
-  
+  width: 1.125rem;
+  height: 1.125rem;
+  color: rgb(248, 170, 183);
+  margin: 0 0.3125rem 0 0;
+}
+
 .fa-heart:hover {
-    color: red;
-    transform: scale(1.2);
+  color: red;
+  transform: scale(1.2);
 }
 
 .fa-heart.clicked {
-    animation: flash-red 2s linear;
+  animation: flash-red 2s linear;
 }
 
 @keyframes flash-red {
-    0% { color: rgb(248, 170, 183); }
-    25% { color: rgb(240, 117, 117)k; }
-    50% { color: red; }
-    75% { color: rgb(240, 117, 117); }
-    100% { color: rgb(248, 170, 183); }
+  0% {
+    color: rgb(248, 170, 183);
   }
 
-  .status, .messageHeader, .author {
-      display: flex;
+  25% {
+    color: rgb(240, 117, 117)k;
   }
 
-  .messageHeader {
-      flex-direction: row;
-      height: 60px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 4px 0 18px;
+  50% {
+    color: red;
   }
 
-  .author {
-      flex-direction: row;
-      align-items: center;
+  75% {
+    color: rgb(240, 117, 117);
   }
 
-  .authorImage {
-    /* background: #C4C4C4; */
-    /* background: #1b1b1b; */
-    background-image: url('../../images/testProfilePic.png');
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+  100% {
+    color: rgb(248, 170, 183);
   }
-
-  .imgContainer{
-      display: flex;
-      width: 614px;
-      height: 614px;
-      background: #1b1b1b;
-      align-items: center;
-      justify-content: center;
-  }
-
-  .imgContainer > img {
-      width: 614px;
-      height: 614px;
-      object-fit: cover;
 }
 
-.messageFooter{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
-    /* padding: 18px 18px 18px 18px; */
+.status,
+.messageHeader,
+.author {
+  display: flex;
 }
 
-.likes, .totalComments {
-    font-style: normal;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: -0.3px;
-    color: #ABABAB;
-    padding-right: 5px;
-  }
+.messageHeader {
+  flex-direction: row;
+  height: 3.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.25rem 0 1.125rem;
+}
 
-  .messageInfo {
-    text-align: left;
-    padding: 15px;
-    font-size: 15px;
-  }
+.author {
+  flex-direction: row;
+  align-items: center;
+}
 
-  .messageInfo p {
-      margin: 5px 0;
-  }
+.authorImage {
+  background-image: url('../../images/testProfilePic.png');
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+}
 
-  .messageInfo a {
-      text-decoration: none;
-      color: #ABABAB;
-      margin: 5px 0;
-  }
+.imgContainer {
+  display: flex;
+  width: 38.5rem;
+  height: 38.5rem;
+  background: #1b1b1b;
+  align-items: center;
+  justify-content: center;
+}
 
-  .DropDownMenu {
-      width: 32px;
-      height: 26px;
-      border-radius: 3px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      border: none;
-  }
+.imgContainer>img {
+  width: 38.5rem;
+  height: 38.5rem;
+  object-fit: cover;
+}
 
-  .DropDownMenu:hover {
-    background: rgba(143, 143, 143, 0.19);
-  }
+.messageFooter {
+  /* display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center; /
+/ padding: 1.125rem 1.125rem 1.125rem 1.125rem; */
+}
 
-  .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background-color: #262626;
-      margin: 0 1px;
-  }
+.likes,
+.totalComments {
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: -0.3px;
+  color: #ABABAB;
+  padding-right: 0.3125rem;
+}
 
+.messageInfo {
+  text-align: left;
+  padding: 0.9375rem;
+  font-size: 0.9375rem;
+}
 
-  .more {
-      display: none;
-  }
+.messageInfo p {
+  margin: 0.3125rem 0;
+}
 
-  .deleteButton{
-      display: none;
-  }
+.messageInfo a {
+  text-decoration: none;
+  color: #ABABAB;
+  margin: 0.3125rem 0;
+}
 
-  .showDelete {
-      display: initial;
-  }
+.DropDownMenu {
+  width: 2rem;
+  height: 1.625rem;
+  border-radius: 0.1875rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
 
-  .profilePic{
-    /* background: #C4C4C4; */
-    background: black;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+.DropDownMenu:hover {
+  background: rgba(143, 143, 143, 0.19);
+}
 
-  .description{
-    padding : 0 20px ;
-  }
+.dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background-color: #262626;
+  margin: 0 0.0625rem;
+}
 
-  .messageOptions{
-    margin : 15px 0 ;
-  }
+.more {
+  display: none;
+}
 
-  .addCommentSection{
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; */
-    padding: 0 15px;
-  }
+.deleteButton {
+  display: none;
+}
 
-  .messageText {
-    text-align: left;
-    padding: 0 15px 8px 15px;
-    font-size: 15px;
-  }
+.showDelete {
+  display: initial;
+}
 
-.messageTextLine{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.profilePic {
+  background: black;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+}
+
+.description {
+  padding: 0 1.25rem;
+}
+
+.messageOptions {
+  margin: 0.9375rem 0;
+}
+
+.addCommentSection {
+  padding: 0 0.9375rem;
+}
+
+.messageText {
+  text-align: left;
+  padding: 0 0.9375rem 0.5rem 0.9375rem;
+  font-size: 0.9375rem;
+}
+
+.messageTextLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentInput {
+  margin: 0.9375rem 0;
 }
