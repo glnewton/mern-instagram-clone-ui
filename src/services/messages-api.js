@@ -1,6 +1,6 @@
-const baseURL = "http://localhost:3001/messages/"
+//const baseURL = "http://localhost:3001/messages/"
 
-//const baseURL = process.env.REACT_APP_BACKEND_API + "/messages/"  || "http://localhost:3001/messages/"
+const baseURL = process.env.REACT_APP_BACKEND_API + "/messages/"  || "http://localhost:3001/messages/"
 
 
 //Works

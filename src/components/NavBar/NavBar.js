@@ -5,9 +5,10 @@ import "./navBar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { auth } from '../../services/firebase';
+import profilePic from '../../images/testProfilePic.png';
 
 
-export default function NavBar({isLoggedIn, setIsLoggedIn}) {
+export default function NavBar({ isLoggedIn, setIsLoggedIn }) {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,15 +33,16 @@ export default function NavBar({isLoggedIn, setIsLoggedIn}) {
             <div className="logo">
                 <Link to="/"><h1>Instagram Clone</h1></Link>
             </div>
-            
+
             <div className="links">
-                {isLoggedIn ==  true ?
+                {isLoggedIn == true ?
                     <>
                         <Link to="/create-message">
                             <FontAwesomeIcon icon={faPlusSquare} className="faCreateMessageIcon" />
                         </Link>
                         <Link to="/profile">Profile</Link>
                         <Link onClick={handleLogout}>Logout</Link>
+                        {/* <img className="authorImage" src={profilePic} alt="AuthorIcon" crossOrigin="anonymous" /> */}
                     </>
                     :
                     <>

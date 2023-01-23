@@ -1,6 +1,6 @@
-//const baseURL = 'http://localhost:3001/comments/'
+const baseURL = 'http://localhost:3001/comments/'
 
-const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
+//const baseURL = process.env.REACT_APP_BACKEND_API + "/comments/" || "http://localhost:3001/comments/"
 
 // Gets all comments
 const getAllComments = async () => {
@@ -50,9 +50,6 @@ const getAllCommentsByUser = async (userId) => {
 }
 
 
-
-
-
 // Gets all comments by messageId
 const getAllCommentsByMessage = async (messageId) => {
     try {
@@ -66,8 +63,6 @@ const getAllCommentsByMessage = async (messageId) => {
         console.error(error);
     }
 }
-
-
 
 // 
 // create the route in the backend
