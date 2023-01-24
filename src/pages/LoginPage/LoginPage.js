@@ -18,6 +18,10 @@ const LoginPage = ({setIsLoggedIn}) => {
                 setIsLoggedIn(true);
                 navigate("/")
                 console.log(user);
+                //user.displayName = "John Doe";
+                //user.photoURL = "https://example.com/jane-q-user/profile.jpg";
+                //user.email 
+                //user.uid
             })
             .catch((error) => {
                 const errorCode = error.code;

@@ -43,27 +43,6 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
         navigate("/");
     }
 
-    // const handleUpdateProfile = async () => {
-    //     console.log("handleUpdateProfile clicked")
-    //     try {
-    //         const updatedUser = auth.currentUser;
-    //         const credential = auth.EmailAuthProvider.credential(
-    //             updatedUser.email,
-    //             password
-    //         );
-    //         await updatedUser.reauthenticateWithCredential(credential);
-    //         await updatedUser.updateEmail(email);
-    //         await updatedUser.updatePassword(newPassword);
-    //         await auth.currentUser.updateProfile({displayName: displayName});
-    //         console.log("updatedUser", updatedUser)
-    //         alert("Profile updated successfully!");
-    //     } catch (error) {
-    //         // Handle different error codes
-    //     }
-    // }
-
-
-
     if (!user) {
         navigate("/login");
         return null;
@@ -89,6 +68,19 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
                                             onChange={(e) => setDisplayName(e.target.value)}
                                             required
                                             placeholder="Display name"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="photo-url">
+                                            Photo URL
+                                        </label>
+                                        <input
+                                            type="text"
+                                            label="Photo URL"
+                                            value={photoURL}
+                                            onChange={(e) => setPhotoURL(e.target.value)}
+                                            required
+                                            placeholder="Photo URL"
                                         />
                                     </div>
                                     <div>

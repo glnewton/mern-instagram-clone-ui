@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar';
 
 //Pages
@@ -11,11 +11,28 @@ import EditMessagePage from './pages/EditMessagePage/EditMessagePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-// import { auth } from './services/firebase';
+import { auth } from './services/firebase';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       setIsLoggedIn(true);
+  //       setCurrentUser(user);
+  //     } else {
+  //       setIsLoggedIn(false);
+  //       setCurrentUser(null);
+  //       Navigate("/login");
+  //     }
+  //   });
+  //   return () => unsubscribe();
+  // }, []);
+
+
+
 
   return (
     <div className="App">
@@ -35,6 +52,7 @@ export default function App() {
     </div>
   );
 }
+
 
 //import './App.scss';
 //https://codepen.io/alexitaylor/pen/RgxJwg

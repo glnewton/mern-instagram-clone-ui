@@ -117,7 +117,7 @@ const editComment = async (id, updatedComment) => {
             throw new Error(response.statusText);
         }
         return response.status
-        ();
+        
     } catch (error) {
         console.error(error);
     }

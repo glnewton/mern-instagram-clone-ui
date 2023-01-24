@@ -12,11 +12,8 @@ else {
 //Works
 const getAllMessages = async () => {
     try {
-        console.log("Process", process.env)
-        console.log(baseURL)
         const URL = `${baseURL}`
         const response = await fetch(URL);
-        console.log(response)
         if (!response.ok) {
             throw new Error(response.statusText);
         }
