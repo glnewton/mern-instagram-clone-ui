@@ -4,7 +4,7 @@ import MessageFeed from "../../components/MessageFeed/MessageFeed"
 
 const HomePage = () => {
     return (
-        <div className="container">
+        <div className="homePage page">
             <h1>Home Page</h1>
             <MessageFeed />
         </div>

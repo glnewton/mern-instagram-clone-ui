@@ -1,4 +1,4 @@
-.NavBar {
+.NavBar2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,33 +13,33 @@
     z-index: 10;
 }
 
-.NavBar h1 {
+.NavBar2 h1 {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
 }
 
-.NavBar a {
+.NavBar2 a {
     text-decoration: none;
     color: #333;
     font-size: 1.2rem;
     margin: 0 10px;
 }
 
-.NavBar a:hover {
+.NavBar2 a:hover {
     color: #000;
 }
 
-.NavBar a.active {
+.NavBar2 a.active {
     color: #000;
     font-weight: 500;
 }
 
-.NavBar a.active:hover {
+.NavBar2 a.active:hover {
     color: #000;
 }
 
-.NavBar a.active::after {
+.NavBar2 a.active::after {
     content: "";
     display: block;
     width: 100%;

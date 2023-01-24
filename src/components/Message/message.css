@@ -192,3 +192,11 @@ align-items: center; /
 .commentInput {
   margin: 0.9375rem 0;
 }
+
+.card-body {
+  padding: 0;
+}
+
+.card-footer {
+  padding: 0;
+}

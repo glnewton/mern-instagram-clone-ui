@@ -1,7 +1,12 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import Container from 'react-bootstrap/Container';
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar';
+
+
 
 //Pages
 import HomePage from './pages/HomePage/HomePage';
@@ -11,6 +16,11 @@ import EditMessagePage from './pages/EditMessagePage/EditMessagePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+
+//Components
+import NavBar2 from './components/NavBar/NavBar2';
+
+
 import { auth } from './services/firebase';
 
 export default function App() {
@@ -37,17 +47,19 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/view-message/:id" element={<ViewMessagePage />} />
-          <Route path="/create-message" element={<CreateMessagePage />} />
-          <Route path="/edit-message/:id" element={<EditMessagePage />} />
-          <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-          <Route path="*" element={<h1>404 Not Found</h1>} />
-        </Routes>
+        <NavBar2 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        {/* <Container> */}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/view-message/:id" element={<ViewMessagePage />} />
+            <Route path="/create-message" element={<CreateMessagePage />} />
+            <Route path="/edit-message/:id" element={<EditMessagePage />} />
+            <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+            <Route path="*" element={<h1>404 Not Found</h1>} />
+          </Routes>
+        {/* </Container> */}
       </Router>
     </div>
   );

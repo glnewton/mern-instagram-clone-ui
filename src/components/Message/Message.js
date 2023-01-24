@@ -1,4 +1,8 @@
+
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import './message.css';
+
 import profilePic from '../../images/testProfilePic.png';
 import testMessagePic from '../../images/testMessagePic.jpeg';
 
@@ -18,7 +22,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 //import getImageViaProxy from '../../services/get-image-via-proxy.js';
 
-const baseURL = process.env.REACT_APP_BACKEND_API + "/images"  || "http://localhost:3001/images"
+const baseURL = process.env.REACT_APP_BACKEND_API + "/images" || "http://localhost:3001/images"
 
 export default function Message({ element }) {
   // console.log(element);
@@ -99,8 +103,8 @@ export default function Message({ element }) {
   }
 
   const removeComment = commentId => {
-      setComments(comments.filter(comment => comment._id !== commentId));
-      setNumberOfComments(numberOfComments - 1);
+    setComments(comments.filter(comment => comment._id !== commentId));
+    setNumberOfComments(numberOfComments - 1);
   };
 
   const updateMessageWithNewComment = async () => {
@@ -122,74 +126,76 @@ export default function Message({ element }) {
       console.log(error);
     }
   }
-  
+
 
 
   return (
     <>
-      <div className="message">
-        <div className="messageHeader">
-          <div className="author">
-            <img className="authorImage" src={imageUrl || element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous" />
-            {element.userName}
-          </div>
-          <div className="DropDownMenu">
-            <div className="dot"></div>
-            <div className="dot"></div>
-            <div className="dot"></div>
-            <div className="deleteButton">Delete</div>
-          </div>
-        </div> {/*end of messageHeader*/}
-
-        <Link to={`/view-message/${element._id}`}>
-          <div className="imgContainer">
-            <img src={element.imageUrl || testMessagePic} alt="messageImage" crossOrigin="anonymous" />
-          </div> {/*end of imgContainer*/}
-        </Link>
-
-        <div className="messageFooter">
-
-          <div className="messageInfo">
-            <div className="status">
-              <FontAwesomeIcon icon={faHeart} onClick={handleHeartClick} />
-              <div className="likes">{likes} likes</div>
-              <div className="totalComments">{numberOfComments || 0} comments</div>
+      <Card className="message">
+        <Card.Body>
+          <Card.Header className="messageHeader">
+            <div className="author">
+              <img className="authorImage" src={imageUrl || element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous" />
+              {element.userName}
             </div>
-          </div> {/*end of messageInfo*/}
-
-          <div className="messageText">
-            <div className="messageTextLine">
-              <b>{element.userName}</b> {element.message}
+            <div className="DropDownMenu">
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="deleteButton">Delete</div>
             </div>
-            {/* <hr/> */}
-          </div> {/*end of messageText*/}
+          </Card.Header> {/*end of messageHeader*/}
 
-          <div className="commentSection">
-            <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} updateComments={updateComments} />
-            <div className="addCommentSection">
-              <div className="commentInput">
-                <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
-                <button onClick={handleAddComment}>Add Comment</button>
-              </div> {/*end of commentInput*/}
-            </div> {/*end of addCommentSection*/}
-          </div> {/*end of commentSection*/}
+          <Link to={`/view-message/${element._id}`}>
+            <div className="imgContainer">
+              <Card.Img src={element.imageUrl || testMessagePic} alt="messageImage" crossOrigin="anonymous" />
+            </div> {/*end of imgContainer*/}
+          </Link>
 
-          {isViewMessagePage && (
-            <div className="messageOptions">
-              <Link to={`/view-message/${element._id}`}>
-                <button>View</button>
-              </Link>
-              <Link to={`/edit-message/${element._id}`}>
-                <button>Edit</button>
-              </Link>
-              <button onClick={deleteTheMessage}>
-                Delete
-              </button>
-            </div>
-          )
-          } {/*end of messageOptions*/}
-        </div> {/*end of messageFooter*/}
-      </div> {/*end of message*/}
+          <Card.Footer className="messageFooter">
+
+            <div className="messageInfo">
+              <div className="status">
+                <FontAwesomeIcon icon={faHeart} onClick={handleHeartClick} />
+                <div className="likes">{likes} likes</div>
+                <div className="totalComments">{numberOfComments || 0} comments</div>
+              </div>
+            </div> {/*end of messageInfo*/}
+
+            <Card.Title className="messageText">
+              <div className="messageTextLine">
+                <b>{element.userName}</b> {element.message}
+              </div>
+              {/* <hr/> */}
+            </Card.Title> {/*end of messageText*/}
+
+            <div className="commentSection">
+              <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} updateComments={updateComments} />
+              <div className="addCommentSection">
+                <div className="commentInput">
+                  <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
+                  <Button onClick={handleAddComment}>Add Comment </Button>
+                </div> {/*end of commentInput*/}
+              </div> {/*end of addCommentSection*/}
+            </div> {/*end of commentSection*/}
+
+            {isViewMessagePage && (
+              <div className="messageOptions">
+                <Link to={`/view-message/${element._id}`}>
+                  <Button variant="info">View</Button>
+                </Link>
+                <Link to={`/edit-message/${element._id}`}>
+                  <Button variant="warning">Edit</Button>
+                </Link>
+                <Button variant="danger" onClick={deleteTheMessage} >
+                  Delete
+                </Button>
+              </div>
+            )
+            } {/*end of messageOptions*/}
+          </Card.Footer> {/*end of messageFooter*/}
+        </Card.Body>
+      </Card> {/*end of message*/}
     </>
   );
 }
