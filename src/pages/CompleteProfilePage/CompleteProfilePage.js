@@ -66,7 +66,7 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser }) => {
 
                     <Form.Group className="mb-2" controlId="formBasicPhotoURL">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" placeholder="Add a URL to your profile picture..." value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
+                        <Form.Control type="text" placeholder="Add a URL to your profile picture (from Amazon.com)..." value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
                     </Form.Group>
 
                     {/* <Form.Group className="mb-2" controlId="formBasicEmail">
@@ -83,16 +83,9 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser }) => {
                         <Form.Label>New Password</Form.Label>
                         <Form.Control type="password" placeholder="New Password" onChange={(e) => setNewPassword(e.target.value)} />
                     </Form.Group> */}
-
                     <Button variant="primary" type="submit" onClick={handleUpdateProfile}>
-                        Update Profile
+                        Complete Profile
                     </Button>
-                    <Form.Text className="text-muted mt-4">
-                        Already have an account?{' '}
-                        <NavLink to="/login">
-                            Login
-                        </NavLink>
-                    </Form.Text>
                 </Form>
             </main>
         </>
