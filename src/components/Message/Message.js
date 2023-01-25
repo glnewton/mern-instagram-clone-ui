@@ -1,4 +1,4 @@
-
+import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './message.css';
@@ -172,9 +172,18 @@ export default function Message({ element }) {
             <div className="commentSection">
               <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} updateComments={updateComments} />
               <div className="addCommentSection">
+                <Form className="commentInput">
+                  <Form.Group controlId="formBasicComment">
+                    <Form.Control type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
+                  </Form.Group>
+                  <Button onClick={handleAddComment}>Add Comment </Button>
+                </Form>
+
                 <div className="commentInput">
                   <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
                   <Button onClick={handleAddComment}>Add Comment </Button>
+
+
                 </div> {/*end of commentInput*/}
               </div> {/*end of addCommentSection*/}
             </div> {/*end of commentSection*/}

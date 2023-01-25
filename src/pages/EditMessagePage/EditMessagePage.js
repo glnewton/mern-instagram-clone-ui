@@ -98,33 +98,6 @@ export default function EditMessagePage() {
                     </div>
                 </Form>
             </main>
-
-            {/* <div className="editMessagePage page">
-                <div className="editMessageFormContainer">
-                    <h1>Edit Your Message</h1>
-                    <div className="editMessageForm">
-                        <form onSubmit={editTheMessage}>
-                            <p> Update the fields you want to change and click "Edit"</p>
-                            <div className="editMessageFormInput">
-                                <div className="editMessageFormFields">
-                                    <p> User Name: <input type="text" name="userName" defaultValue={message.userName}></input></p>
-                                    <p> Image URL: <input type="text" name="imageUrl" defaultValue={message.imageUrl}></input></p>
-                                    <p> Message: <input type="text" name="message" defaultValue={message.message}></input></p>
-                                    <p> Created Date: <input type="text" name="createdDate" defaultValue={message.createdDate}></input></p>
-                                </div>
-                            </div>
-                            <div className="editMessageFormButtons">
-                                <button>
-                                    <a href={`/view-message/${id}`}>Cancel</a>
-                                </button>
-                                <button>
-                                    <input type="submit" value="Edit"></input>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> */}
         </>
     )
 }
