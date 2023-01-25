@@ -19,13 +19,19 @@ export default function CreateMessagePage() {
 
     let currentDateTime = moment().format(); // 2021-09-15T20:00:00-04:00
 
+    //User state
     const [user, setUser] = useState(null);
     const [userID, setUserID] = useState(null);
     const [displayName, setDisplayName] = useState('');
     // const [userAvatar, setUserAvatar] = useState('')
+
+    //Message state
     const [messagePhotoURL, setmessagePhotoURL] = useState('');
     const [message, setMessage] = useState('');
     const [createdDate, setCreatedDate] = useState('');
+    const [likes, setLikes] = useState(0);
+    const [comments, setComments] = useState(0);
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(currentUser => {
@@ -46,9 +52,12 @@ export default function CreateMessagePage() {
         try {
             await createMessage({
                 userName: displayName,
+                // userProfileImage: user.photoURL,
                 imageUrl: messagePhotoURL,
                 message: message,
-                createdDate: createdDate
+                createdDate: createdDate,
+                likes: likes,
+                comments: comments
             });
             navigate('/');
         } catch (error) {
