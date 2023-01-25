@@ -46,3 +46,12 @@ form {
 
 }
 
+.createMessagePage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100vw;
+    background: #FAFAFA;
+}

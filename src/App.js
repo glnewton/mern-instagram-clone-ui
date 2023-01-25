@@ -21,7 +21,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import NavBar2 from './components/NavBar/NavBar2';
 
 
-//import { auth } from './services/firebase';
+//import { auth } from './services/firebase';  /etc/secrets/<filename>.
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -33,10 +33,10 @@ export default function App() {
         <NavBar2 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         {/* <Container> */}
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/view-message/:id" element={<ViewMessagePage />} />
-            <Route path="/create-message" element={<CreateMessagePage />} />
-            <Route path="/edit-message/:id" element={<EditMessagePage />} />
+            <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/view-message/:id" element={<ViewMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/create-message" element={<CreateMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/edit-message/:id" element={<EditMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
             <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
