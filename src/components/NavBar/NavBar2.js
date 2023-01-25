@@ -38,7 +38,7 @@ export default function NavBar2({ isLoggedIn, setIsLoggedIn }) {
 
     return (
         <>
-            <div className="navBar2">
+            {/* <div className="navBar2">
             <Navbar bg="light" expand="lg" className="navBar2">
                 <Container fluid>
                     <Navbar.Brand>
@@ -76,7 +76,7 @@ export default function NavBar2({ isLoggedIn, setIsLoggedIn }) {
                     </div>
                 </Container>
             </Navbar>
-            </div>
+            </div> */}
 
             <nav className="NavBar2">
                 <div className="logo">

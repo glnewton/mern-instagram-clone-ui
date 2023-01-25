@@ -21,28 +21,11 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import NavBar2 from './components/NavBar/NavBar2';
 
 
-import { auth } from './services/firebase';
+//import { auth } from './services/firebase';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged(user => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //       setCurrentUser(user);
-  //     } else {
-  //       setIsLoggedIn(false);
-  //       setCurrentUser(null);
-  //       Navigate("/login");
-  //     }
-  //   });
-  //   return () => unsubscribe();
-  // }, []);
-
-
-
 
   return (
     <div className="App">
