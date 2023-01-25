@@ -45,7 +45,7 @@ const LoginPage = ({ setIsLoggedIn, darkMode, setDarkMode }) => {
             <main className={`loginPage ${darkMode ? 'loginPage-dark-mode' : ''}`}>
                     {/* <Container> */}
                     {/* <Form className='p-5 square border col-sm-4  mx-auto my-auto h-auto bg-white' > */}
-                    <Form className={`loginForm p-5 square border col-sm-4  mx-auto my-auto h-auto ${darkMode ? 'loginPage-dark-mode border-dark' : 'bg-white'}`} >
+                    <Form className={`loginForm p-5 square border col-sm-4 mx-auto my-auto h-auto ${darkMode ? 'loginForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Login </h1>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>

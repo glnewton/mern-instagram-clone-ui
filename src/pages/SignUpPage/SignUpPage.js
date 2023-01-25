@@ -48,7 +48,8 @@ const SignUpPage = ({darkMode, setDarkMode}) => {
         <>
             {/* <main className="signUpPage"> */}
             <main className={`signUpPage ${darkMode ? 'signUpPage-dark-mode' : ''}`}>
-                <Form className='p-5 square border col-sm-4  mx-auto my-auto h-auto bg-white' >
+                {/* <Form className='p-5 square border col-sm-4  mx-auto my-auto h-auto bg-white' > */}
+                <Form className={`signUpForm p-5 square border col-sm-4  mx-auto my-auto h-auto ${darkMode ? 'signUpForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Sign Up </h1>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
