@@ -58,7 +58,7 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser }) => {
         <>
             <main className="completeProfilePage">
                 <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' >
-                    <h1 className='mb-5'> Update Your Profile </h1>
+                    <h1 className='mb-5'> Finish Setting Up Your Profile </h1>
                     <Form.Group className="mb-2" controlId="formBasicDisplayName">
                         <Form.Label>Display Name</Form.Label>
                         <Form.Control type="text" placeholder=" Think of a cool name..." value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
