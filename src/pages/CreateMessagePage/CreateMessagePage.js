@@ -20,6 +20,7 @@ export default function CreateMessagePage() {
     let currentDateTime = moment().format(); // 2021-09-15T20:00:00-04:00
 
     const [user, setUser] = useState(null);
+    const [userID, setUserID] = useState(null);
     const [displayName, setDisplayName] = useState('');
     // const [userAvatar, setUserAvatar] = useState('')
     const [messagePhotoURL, setmessagePhotoURL] = useState('');

@@ -69,7 +69,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
                         <Form.Control type="text" placeholder="Add a URL to your profile picture..." value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group className="mb-2" controlId="formBasicEmail">
+                    {/* <Form.Group className="mb-2" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Group>
@@ -82,7 +82,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
                     <Form.Group className="mb-2" controlId="formBasicNewPassword">
                         <Form.Label>New Password</Form.Label>
                         <Form.Control type="password" placeholder="New Password" onChange={(e) => setNewPassword(e.target.value)} />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button variant="primary" type="submit" onClick={handleUpdateProfile}>
                         Update Profile
