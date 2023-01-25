@@ -21,7 +21,7 @@ const SignUpPage = () => {
         e.preventDefault()
         try {
             await createUserWithEmailAndPassword(auth, email, password)
-            navigate("/login")
+            navigate("/profile")
         } catch (error) {
             // Handle different error codes
             switch (error.code) {

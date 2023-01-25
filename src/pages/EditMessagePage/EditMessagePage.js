@@ -2,7 +2,7 @@ import './editMessagePage.css';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+
 
 import { useState, useEffect } from "react";
 
@@ -18,7 +18,6 @@ export default function EditMessagePage() {
 
     const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
-
 
     const [userName, setUserName] = useState('');
     const [message, setMessage] = useState(null);

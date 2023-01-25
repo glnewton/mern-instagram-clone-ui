@@ -6,9 +6,8 @@ import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
-//IMport Momment to format date
-import moment from 'moment';
 
+import moment from 'moment';
 
 import { createMessage } from "../../services/messages-api";
 
