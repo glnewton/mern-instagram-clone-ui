@@ -25,24 +25,32 @@ import NavBar2 from './components/NavBar/NavBar2';
 //import { auth } from './services/firebase';  /etc/secrets/<filename>.
 
 export default function App() {
+
+  const [darkMode, setDarkMode] = useState(false);
+
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       <Router>
-        <NavBar2 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <NavBar2 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} darkMode={darkMode} setDarkMode={setDarkMode} />
         {/* <Container> */}
           <Routes>
+
             <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
-            <Route path="/view-message/:id" element={<ViewMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/view-message/:id" element={<ViewMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
             <Route path="/create-message" element={<CreateMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
             <Route path="/edit-message/:id" element={<EditMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+
             <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
+
             <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
             <Route path="/complete-profile" element={<CompleteProfilePage/>} />
+
             <Route path="*" element={<h1>404 Not Found</h1>} />
+              
           </Routes>
         {/* </Container> */}
       </Router>

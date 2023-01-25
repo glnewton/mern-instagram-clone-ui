@@ -53,11 +53,28 @@
     color: #333;
 }
 
-/* .authorImage {
+.links {
+    display: flex;
+    flex-direction: row;
+}
 
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-    margin-right: 0.625rem;
+/* ////////////////////// Dark Mode ////////////////////// */
 
-  } */
+.NavBar2-dark-mode{
+    background-color: #333;
+    color: #fff;
+}
+
+.NavBar2-dark-mode a{
+    color: #fff;
+}
+
+.NavBar2-dark-mode a.active::after{
+    background-color: #fff;
+}
+
+.NavBar2-dark-mode .faCreateMessageIcon{
+    color: #fff;
+}
+
+/* Path: mern-instagram-clone-ui\src\components\NavBar\navBar.css */

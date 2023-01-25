@@ -24,7 +24,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const baseURL = process.env.REACT_APP_BACKEND_API + "/images" || "http://localhost:3001/images"
 
-export default function Message({ element }) {
+export default function Message({ element, darkMode, setDarkMode }) {
   // console.log(element);
 
   const nav = useNavigate()
@@ -131,18 +131,12 @@ export default function Message({ element }) {
 
   return (
     <>
-      <Card className="message">
+      <Card className={`message ${darkMode ? 'message-dark-mode' : ''}`}>
         <Card.Body>
           <Card.Header className="messageHeader">
             <div className="author">
               <img className="authorImage" src={imageUrl || element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous" />
               {element.userName}
-            </div>
-            <div className="DropDownMenu">
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="deleteButton">Delete</div>
             </div>
           </Card.Header> {/*end of messageHeader*/}
 
@@ -170,26 +164,30 @@ export default function Message({ element }) {
             </Card.Title> {/*end of messageText*/}
 
             <div className="commentSection">
+
               <CommentFeed messageId={element._id} comments={comments} removeComment={removeComment} updateComments={updateComments} />
+
               <div className="addCommentSection">
-                <Form className="commentInput">
-                  <Form.Group controlId="formBasicComment">
-                    <Form.Control type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
-                  </Form.Group>
-                  <Button onClick={handleAddComment}>Add Comment </Button>
+                <Form className='mt-3 mb-3'>
+                  <div className="commentInput">
+                    <Form.Group className="col-7" controlId="formBasicComment">
+                      <Form.Control  type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
+                    </Form.Group>
+                    <Button className="col-2.5" onClick={handleAddComment}>Add Comment </Button>
+                  </div>
                 </Form>
 
-                <div className="commentInput">
+                {/* <div className="commentInput">
                   <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
                   <Button onClick={handleAddComment}>Add Comment </Button>
-
-
-                </div> {/*end of commentInput*/}
+                </div> end of commentInput */}
               </div> {/*end of addCommentSection*/}
             </div> {/*end of commentSection*/}
 
             {isViewMessagePage && (
-              <div className="messageOptions">
+              <>
+              <hr className="mw-80 m-auto"/>
+              <div className="messageOptionButtons">
                 <Link to={`/view-message/${element._id}`}>
                   <Button variant="info">View</Button>
                 </Link>
@@ -200,6 +198,7 @@ export default function Message({ element }) {
                   Delete
                 </Button>
               </div>
+              </>
             )
             } {/*end of messageOptions*/}
           </Card.Footer> {/*end of messageFooter*/}

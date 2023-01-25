@@ -171,13 +171,14 @@ align-items: center; /
   padding: 0 1.25rem;
 }
 
-.messageOptions {
+.messageOptionButtons {
   margin: 0.9375rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around
 }
 
-.addCommentSection {
-  padding: 0 0.9375rem;
-}
 
 .messageText {
   text-align: left;
@@ -191,14 +192,7 @@ align-items: center; /
   align-items: center;
 }
 
-.commentInput {
-  width: 100%;
-  margin: 0.9375rem 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 .card-body {
   padding: 0;
@@ -206,4 +200,32 @@ align-items: center; /
 
 .card-footer {
   padding: 0;
+}
+
+
+.addCommentSection {
+  padding: 0 0.9375rem;
+}
+
+.commentInput {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+/* ////////////////////// Dark Mode ////////////////////// */
+
+.message-dark-mode {
+  background-color: #1b1b1b;
+  color: #FFFFFF;
+}
+
+.messageHeader-dark-mode {
+  background-color: #1b1b1b;
+}
+
+.messageFooter-dark-mode {
+  background-color: #1b1b1b;
 }
