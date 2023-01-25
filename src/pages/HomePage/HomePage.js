@@ -9,7 +9,7 @@ import { auth } from '../../services/firebase';
 
 
 
-const HomePage = () => {
+const HomePage = ({ darkMode, setDarkMode }) => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
@@ -27,12 +27,12 @@ const HomePage = () => {
         });
         return () => unsubscribe();
     }, []);
-
+    console.log("Home Page darkMode: ", darkMode);
 //Conditionally render the MessageFeed component depending on whether the user is logged in. If not display a message to the user to log in or register.
     return (
-        <div className="homePage page">
+        <div className={`homePage ${darkMode ? 'homePage-dark-mode' : ''}`}>
             <h1 className="mt-3">Home Page</h1>
-            {user && <MessageFeed />}
+            {user && <MessageFeed user={user} displayName={displayName} darkMode={darkMode} setDarkMode={setDarkMode}/>}
             {!user && <h3 className="mt-3">
             Please log in or register to view messages.</h3>}
         </div>

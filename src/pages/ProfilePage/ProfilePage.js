@@ -11,7 +11,7 @@ import { auth } from '../../services/firebase';
 import { getAuth, updateProfile } from "firebase/auth";
 
 
-const ProfilePage = ({ isLoggedIn, currentUser }) => {
+const ProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode }) => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
@@ -56,8 +56,10 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
 
     return (
         <>
-            <main className="profilePage">
-                <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' >
+            {/* <main className="profilePage"> */}
+            <main className={`profilePage ${darkMode ? 'profilePage-dark-mode' : ''}`}>
+                {/* <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' > */}
+                    <Form className={`profilePageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto h-auto w-auto ${darkMode ? 'profilePageForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Update Your Profile </h1>
                     <Form.Group className="mb-2" controlId="formBasicDisplayName">
                         <Form.Label>Display Name</Form.Label>

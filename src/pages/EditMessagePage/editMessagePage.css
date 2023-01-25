@@ -55,3 +55,17 @@ form {
     width: 100vw;
     background: #FAFAFA;
 }
+
+.editMessagePage-dark-mode{
+    background: #333;
+    color: #FFFFFF;
+}
+
+.editMessagePage-dark-mode h1{
+    color: #FFFFFF;
+}
+
+.editMessagePage-dark-mode .editMessageForm{
+    color: #FFFFFF;
+    background-color: #222222!important;
+}

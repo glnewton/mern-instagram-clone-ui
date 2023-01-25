@@ -41,7 +41,7 @@ export default function NavBar2({ isLoggedIn, setIsLoggedIn, darkMode, setDarkMo
 
     return (
         <>
-            <nav className={`NavBar2 ${darkMode ? 'NavBar2-dark-mode' : ''}`}>
+            <nav className={`NavBar2 ${darkMode ? 'NavBar2-dark-mode border-dark' : ''}`}>
                 <div className="logo">
                     <Link to="/"><h1>Instagram Clone</h1></Link>
                 </div>
@@ -67,6 +67,13 @@ export default function NavBar2({ isLoggedIn, setIsLoggedIn, darkMode, setDarkMo
                         <>
                             <Link to="/login">Login</Link>
                             <Link to="/signup">Sign Up</Link>
+                            <Form>
+                                <Form.Check
+                                    type="switch"
+                                    id="custom-switch"
+                                    onChange={() => setDarkMode(!darkMode)}
+                                />
+                            </Form>
                         </>
                     }
                 </div>

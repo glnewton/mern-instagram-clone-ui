@@ -55,3 +55,18 @@ form {
     width: 100vw;
     background: #FAFAFA;
 }
+
+.createMessagePage-dark-mode{
+    background: #333;
+    color: #FFFFFF;
+}
+
+.createMessagePage-dark-mode h1 {
+    color: #FFFFFF;
+}
+
+.createMessagePage-dark-mode .createMessageForm {
+    color: #FFFFFF;
+    background-color: #222222!important;
+}
+

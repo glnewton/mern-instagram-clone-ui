@@ -55,3 +55,17 @@ form {
     width: 100vw;
     background: #FAFAFA;
 }
+
+.completeProfilePage-dark-mode{
+    background: #333;
+    color: #FFFFFF;
+}
+
+.completeProfilePage-dark-mode h1{
+    color: #FFFFFF;
+}
+
+.completeProfilePage-dark-mode .completeProfileForm {
+    color: #FFFFFF;
+    background-color: #222222!important;
+}

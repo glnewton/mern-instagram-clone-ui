@@ -1,6 +1,4 @@
 .viewMessagePage {
-    /* border: 2px solid blue; */
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +8,8 @@
     height: 100%;
     background: #FAFAFA;
 }
-body {
-    height: 100%;
+
+.viewMessagePage-dark-mode{
+    background: #333;
+    color: #FFFFFF;
 }

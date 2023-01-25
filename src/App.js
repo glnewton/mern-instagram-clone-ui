@@ -30,7 +30,7 @@ export default function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  console.log("App darkMode: ", darkMode);
   return (
     <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       <Router>
@@ -38,16 +38,16 @@ export default function App() {
         {/* <Container> */}
           <Routes>
 
-            <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/"                 element={<HomePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
             <Route path="/view-message/:id" element={<ViewMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
-            <Route path="/create-message" element={<CreateMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
-            <Route path="/edit-message/:id" element={<EditMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser}/>} />
+            <Route path="/create-message"   element={<CreateMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+            <Route path="/edit-message/:id" element={<EditMessagePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
 
-            <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+            <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
 
-            <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-            <Route path="/complete-profile" element={<CompleteProfilePage/>} />
+            <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+            <Route path="/complete-profile" element={<CompleteProfilePage darkMode={darkMode} setDarkMode={setDarkMode}/>} />
 
             <Route path="*" element={<h1>404 Not Found</h1>} />
               

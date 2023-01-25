@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getMessage } from "../../services/messages-api.js";
 import Message from "../../components/Message/Message.js";
 
-export default function ViewMessagePage() {
+export default function ViewMessagePage({darkMode, setDarkMode}) {
     const [message, setMessage] = useState(null);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
@@ -18,9 +18,11 @@ export default function ViewMessagePage() {
         .catch(error => console.log(error))
     }, [id]);
     
+    
     return (
-        <div className="viewMessagePage">
-        {loading ? <p>Loading...</p> : <Message element={message} />}
+        <div className={`viewMessagePage ${darkMode ? 'viewMessagePage-dark-mode' : ''}`}>
+  
+        {loading ? <p>Loading...</p> : <Message element={message} darkMode={darkMode} setDarkMode={setDarkMode}/>}
         </div>
     );
     }

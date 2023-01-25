@@ -55,3 +55,17 @@ form {
     width: 100vw;
     background: #FAFAFA;
 }
+
+.signUpPage-dark-mode{
+    background: #333;
+    color: #FFFFFF;
+}
+
+.signUpPage-dark-mode h1{
+    color: #FFFFFF;
+}
+
+.signUpPage-dark-mode .signUpForm {
+    color: #FFFFFF;
+    background-color: #222222!important;
+}

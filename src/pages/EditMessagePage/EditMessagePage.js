@@ -12,7 +12,7 @@ import { getMessage, editMessage } from "../../services/messages-api.js";
 
 import { auth } from '../../services/firebase';
 
-export default function EditMessagePage() {
+export default function EditMessagePage({darkMode, setDarkMode}) {
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -71,12 +71,12 @@ export default function EditMessagePage() {
     if (loading) {
         return <h1>Loading...</h1>;
     }
-
+    
     return (
 
         <>
-            <main className="editMessagePage">
-                <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' >
+            <main className={`editMessagePage ${darkMode ? 'editMessagePage-dark-mode' : ''}`}>
+                <Form    className={`editMessageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto h-auto w-auto ${darkMode ? 'editMessageForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-4'> Edit Your Message </h1>
                     <img src={messagePhotoURL} alt="message" className="messageImage mb-3" />
                     <p> <b>{displayName || "anonymous"}</b>, Update the fields you want to change and click "Edit</p>

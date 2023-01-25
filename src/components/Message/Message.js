@@ -127,11 +127,9 @@ export default function Message({ element, darkMode, setDarkMode }) {
     }
   }
 
-
-
   return (
     <>
-      <Card className={`message ${darkMode ? 'message-dark-mode' : ''}`}>
+      <Card className={`message ${darkMode ? 'message-dark-mode border-dark' : ''}`}>
         <Card.Body>
           <Card.Header className="messageHeader">
             <div className="author">

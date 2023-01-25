@@ -13,7 +13,7 @@ import { createMessage } from "../../services/messages-api";
 
 import { auth } from '../../services/firebase';
 
-export default function CreateMessagePage() {
+export default function CreateMessagePage({darkMode, setDarkMode}) {
 
     const navigate = useNavigate()
 
@@ -67,8 +67,10 @@ export default function CreateMessagePage() {
 
     return (
         <>
-            <main className="createMessagePage">
-                <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' >
+            {/* <main className="createMessagePage"> */}
+            <main className={`createMessagePage ${darkMode ? "createMessagePage-dark-mode" : ""}`}>
+                {/* <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' > */}
+                <Form className={`createMessageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto ${darkMode ? "createMessageForm-dark-mode border-dark" : "bg-white"}`} >
                     <h1 className='mb-4'> Create Message </h1>
                     <img src={messagePhotoURL} alt="Fix your message" className="messageImage mb-3" />
                     <p> <b>{displayName || "anonymous"}</b>, create your message below </p>
@@ -90,34 +92,6 @@ export default function CreateMessagePage() {
                     </div>
                 </Form>
             </main>
-
-
-            {/* <div className="createMessagePage page">
-                <div className="createMessageFormContainer">
-                    <h1>Create Message</h1>
-                    <div className="createMessageForm">
-                        <form onSubmit={handleSubmit}>
-                            <p>Enter the following information to create a new message:</p>
-                            <div className="createMessageFormInput">
-                                <div className="createMessageFormFields">
-                                    <p>User Name <input type="text" name="userName" value={formData.userName} onChange={handleChange}></input></p>
-                                    <p>Image URL <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange}></input></p>
-                                    <p>Message <input type="text" name="message" value={formData.message} onChange={handleChange}></input></p>
-                                    <p>Created Date <input type="text" name="createdDate" value={formData.createdDate} onChange={handleChange}></input></p>
-                                </div>
-                            </div>
-                            <div className="createMessageFormButtons">
-                                <button>
-                                    <input type="submit" value="Submit"></input>
-                                </button>
-                                <button>
-                                    <input type="reset" value="Reset"></input>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> */}
         </>
     )
 }
