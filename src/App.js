@@ -16,6 +16,7 @@ import EditMessagePage from './pages/EditMessagePage/EditMessagePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import CompleteProfilePage from './pages/CompleteProfilePage/CompleteProfilePage';
 
 //Components
 import NavBar2 from './components/NavBar/NavBar2';
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/signup" element={<SignUpPage setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/profile" element={<ProfilePage isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+            <Route path="/complete-profile" element={<CompleteProfilePage/>} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         {/* </Container> */}
@@ -47,19 +49,3 @@ export default function App() {
     </div>
   );
 }
-
-
-//import './App.scss';
-//https://codepen.io/alexitaylor/pen/RgxJwg
-{/* <div class="page-bg"></div>
-
-<div class="animation-wrapper">
-  <div class="particle particle-1"></div>
-  <div class="particle particle-2"></div>
-  <div class="particle particle-3"></div>
-  <div class="particle particle-4"></div>
-</div>
-
-<div class="page-wrapper"> 
-  <h4>CSS test</h4>
-</div> */}

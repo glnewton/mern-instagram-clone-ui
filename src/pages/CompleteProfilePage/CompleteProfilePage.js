@@ -1,4 +1,4 @@
-import './profilePage.css'
+import './completeProfilePage.css'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,7 +11,7 @@ import { auth } from '../../services/firebase';
 import { getAuth, updateProfile } from "firebase/auth";
 
 
-const ProfilePage = ({ isLoggedIn, currentUser }) => {
+const CompleteProfilePage = ({ isLoggedIn, currentUser }) => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
@@ -56,7 +56,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
 
     return (
         <>
-            <main className="profilePage">
+            <main className="completeProfilePage">
                 <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' >
                     <h1 className='mb-5'> Update Your Profile </h1>
                     <Form.Group className="mb-2" controlId="formBasicDisplayName">
@@ -69,7 +69,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
                         <Form.Control type="text" placeholder="Add a URL to your profile picture..." value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
                     </Form.Group>
 
-                    <Form.Group className="mb-2" controlId="formBasicEmail">
+                    {/* <Form.Group className="mb-2" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </Form.Group>
@@ -82,7 +82,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
                     <Form.Group className="mb-2" controlId="formBasicNewPassword">
                         <Form.Label>New Password</Form.Label>
                         <Form.Control type="password" placeholder="New Password" onChange={(e) => setNewPassword(e.target.value)} />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button variant="primary" type="submit" onClick={handleUpdateProfile}>
                         Update Profile
@@ -99,7 +99,7 @@ const ProfilePage = ({ isLoggedIn, currentUser }) => {
     );
 }
 
-export default ProfilePage;
+export default CompleteProfilePage;
 
 // Yes, Firebase User objects have unique ids that are generated when the user is created. These ids are called uid and can be accessed using the user.uid property. The uid is a string that is guaranteed to be unique across all users of your app, and is also guaranteed to be stable for the lifetime of a user (i.e. it will not change for a user even if the user changes their email or password). This makes it useful as a key for storing user-related data in your Firebase Realtime Database or Firestore.
 
