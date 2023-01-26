@@ -20,7 +20,8 @@ export default function ViewMessagePage({ darkMode, setDarkMode }) {
 
 
     return (
-        <div className={`viewMessagePage ${darkMode ? 'viewMessagePage-dark-mode' : ''}`}>
+        <div className={`viewMessagePage ${darkMode ? 'viewMessagePage-dark-mode border-dark' : ''}`}>
+            <h1 className='mt-3'> View Your Message </h1>
             {loading ? <p>Loading...</p> : <Message element={message} darkMode={darkMode} setDarkMode={setDarkMode} />}
         </div>
     );

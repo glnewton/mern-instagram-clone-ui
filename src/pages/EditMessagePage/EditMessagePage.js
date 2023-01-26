@@ -68,6 +68,11 @@ export default function EditMessagePage({darkMode, setDarkMode}) {
             .catch(error => console.log(error));
     }
 
+    const cancelEdit = (event) => {
+        event.preventDefault();
+        navigate(`/view-message/${id}`);
+    }
+
     if (loading) {
         return <h1>Loading...</h1>;
     }
@@ -92,7 +97,8 @@ export default function EditMessagePage({darkMode, setDarkMode}) {
                         <Button variant="info" type="submit" onClick={editTheMessage}>
                             Edit
                         </Button>
-                        <Button variant='danger'>
+                        //
+                        <Button variant='danger' type='submit' onClick={cancelEdit}>
                             Cancel
                         </Button>
                     </div>
