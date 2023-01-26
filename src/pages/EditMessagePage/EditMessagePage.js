@@ -97,7 +97,6 @@ export default function EditMessagePage({darkMode, setDarkMode}) {
                         <Button variant="info" type="submit" onClick={editTheMessage}>
                             Edit
                         </Button>
-                        //
                         <Button variant='danger' type='submit' onClick={cancelEdit}>
                             Cancel
                         </Button>
