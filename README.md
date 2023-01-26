@@ -94,39 +94,39 @@ mern-instagram-clone-ui
 |   |   ├   ├── messageFeed.css
 │   │   └── Navbar
 |   |       ├── Navbar.js
-|   |       └─── Navbar.css
+|   |       └── Navbar.css
 │   ├── pages
 │   │   ├── HomePage
 |   |   |   ├── HomePage.js
-|   |   |   └──── homePage.css
+|   |   |   └── homePage.css
 │   │   ├── LoginPage
 |   |   |   ├── LoginPage.js
-|   |   |   └──── loginPage.css
+|   |   |   └── loginPage.css
 │   │   ├── ViewMessagePage
 |   |   |   ├── ViewMessagePage.js
-|   |   |   └──── viewMessagePage.css
+|   |   |   └── viewMessagePage.css
 │   │   |── ProfilePage
 |   |   |   ├── ProfilePage.js
-|   |   |   └──── profilePage.css
+|   |   |   └── profilePage.css
 │   │   |── CreateMessagePage
 |   |   |   ├── CreateMessagePage.js
-|   |   |   └──── createMessagePage.css
+|   |   |   └── createMessagePage.css
 │   │   |── EditMessagePage
 |   |   |   ├── EditMessagePage.js
-|   |   |   └──── editMessagePage.css
+|   |   |   └── editMessagePage.css
 │   │   |── SignUpPage
 |   |   |   ├── SignUpPage.js
-|   |   |   └──── signUpPage.css
+|   |   |   └── signUpPage.css
 │   │   └── CompleteProfilePage
 |   |       ├── CompleteProfilePage.js
-|   |       └──── completeProfilePage.css
+|   |       └── completeProfilePage.css
 │   ├── services
 │   │   ├── Firebase.js
 │   │   ├── comments-api.js
 │   │   └── messages-api.js
 │   ├── data
 │   │   └── messageData.js
-│   ├── images
+│   └── images
 │       ├── testMessagePic.jpg
 │       └── testProfilePic.jpg
 ├── package.json
