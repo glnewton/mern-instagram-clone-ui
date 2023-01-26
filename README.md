@@ -275,6 +275,7 @@ The app will now be running at <http://localhost:3000> by default.
 
 ## Known Issues
 
+- User image/avatar is not displayed on the message card. Currently the image of the message is used. Not all Firebase users have an image.
 - Image URLS from servers that do not have open CORS will not render. Workaround is to use images from servers that have open CORS. Most images on the Amazon main site have open CORS - <https://www.amazon.com>.
 - The app is not fully optimized for mobile devices or tablets.
 - Form validation is not implemented.
@@ -293,6 +294,7 @@ The app will now be running at <http://localhost:3000> by default.
 - Add a User Profile page (not user profile edit page).
 - Add unit tests to all components.
 - Add integration tests to all components.
+- Make fuller use of the Firebase authentication service and user model.
 
 ## Acknowledgements  
 
