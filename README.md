@@ -12,6 +12,34 @@ This is the front-end UI for the MERN stack Instagram Clone. It uses React as th
 
 [Live Site](https://mern-instagram-clone-ui.onrender.com)
 
+## Screenshots
+
+![Login Page](./docs/loginPage.jpg)
+
+![Sign Up Page](./docs/signUpPage.jpg)
+
+![Complete Profile Page](./docs/completeProfilePage.jpg)
+
+![Update Profile Page](./docs/updateProfilePage-HalfDesktop.jpg)
+
+![Update Profile Page 2](./docs/updateProfilePage-HalfDesktop-Dark.jpg)
+
+![Home Page](./docs/homePage-HalfDesktop.jpg)
+
+![Home Page 2](./docs/homePage-Tablet-Dark.jpg)
+
+![View Message Page](./docs/viewMessagePage-HalfDesktop.jpg)
+
+![View Message Page 2](./docs/viewMessagePage-HalfDesktop-Dark.jpg)
+
+![Create Message Page](./docs/createMessagePage.jpg)
+
+![Create Message Page 2](./docs/createMessagePage-Dark.jpg)
+
+![Edit Message Page](./docs/editMessagePage-HalfDesktop.jpg)
+
+![Edit Comments Display](./docs/editCommentsDisplay.jpg)
+
 ## Deployment & Build Status
 
 This project is a hosted and deployed via Render. Render monitors this repository and will redploy on new commits.
