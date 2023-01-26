@@ -14,29 +14,55 @@ This is the front-end UI for the MERN stack Instagram Clone. It uses React as th
 
 ## Screenshots
 
+### Login Page
+
 ![Login Page](./src/docs/loginPage.jpg)
+
+### Sign Up Page
 
 ![Sign Up Page](./src/docs/signUpPage.jpg)
 
+### Complete Profile Page
+
 ![Complete Profile Page](./src/docs/completeProfilePage.jpg)
+
+### Update Profile Page
 
 ![Update Profile Page](./src/docs/updateProfilePage-HalfDesktop.jpg)
 
+### Update Profile Page 2
+
 ![Update Profile Page 2](./src/docs/updateProfilePage-HalfDesktop-Dark.jpg)
+
+### Home Page
 
 ![Home Page](./src/docs/homePage-HalfDesktop.jpg)
 
+### Home Page 2
+
 ![Home Page 2](./src/docs/homePage-Tablet-Dark.jpg)
+
+### View Message Page
 
 ![View Message Page](./src/docs/viewMessagePage-HalfDesktop.jpg)
 
+### View Message Page 2
+
 ![View Message Page 2](./src/docs/viewMessagePage-HalfDesktop-Dark.jpg)
+
+### Create Message Page
 
 ![Create Message Page](./src/docs/createMessagePage.jpg)
 
+### Create Message Page 2
+
 ![Create Message Page 2](./src/docs/createMessagePage-Dark.jpg)
 
+### Edit Message Page
+
 ![Edit Message Page](./src/docs/editMessagePage-HalfDesktop.jpg)
+
+### Edit Comments Display
 
 ![Edit Comments Display](./src/docs/editCommentsDisplay.jpg)
 
