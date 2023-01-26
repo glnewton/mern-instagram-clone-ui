@@ -101,6 +101,10 @@ Elements of both functional programming and object-oriented programming are used
 - Firebase Auth (Authentication as a Service (AaaS))
 - Render (Cloud PaaS Platform)
 
+#### Render Deployment
+
+![Render](./src/docs/renderDashboard.jpg)
+
 ## Features
 
 1. User Authentication
@@ -314,7 +318,7 @@ Run the following code in your terminal to download the code:
 
 **Step 3: Configure the application**
 
-Create a `.env` file in the root directory of the project and add the REACT_APP_BACKEND_API variable to the .env file. The `REACT_APP_BACKEND_API` variable should be set to the URL of the backend API. For example: `REACT_APP_BACKEND_API=http://localhost:3001`. If you are using the backend API that is deployed to Render, the `REACT_APP_BACKEND_API` variable should be set to `https://mern-instagram-clone-api.onrender.com`.
+Create a `.env` file in the root directory of the project and add the `REACT_APP_BACKEND_API` variable to the .env file. The `REACT_APP_BACKEND_API` variable should be set to the URL of the backend API. For example: `REACT_APP_BACKEND_API=http://localhost:3001`. If you are using the backend API that is deployed to Render, the `REACT_APP_BACKEND_API` variable should be set to `https://mern-instagram-clone-api.onrender.com`.
 
 **Step 4: Start the application**
 
