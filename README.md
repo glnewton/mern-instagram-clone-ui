@@ -12,30 +12,17 @@ This is the front-end UI for the MERN stack Instagram Clone. It uses React as th
 
 [Live Site](https://mern-instagram-clone-ui.onrender.com)
 
-## Screenshots (***UPDATE ME***)
-
-![Home Page](./docs/homePage.jpg)
-
-![Inventory Page (Index Page)](./docs/inventoryPage.jpg)
-
-![Item Detail Page (Show Page)](./docs/itemDetailPage.jpg)
-
-![Update Item Page (Edit Page)](./docs/updateItemPage.jpg)
-
-![Create Item Page (New Page)](./docs/createItemPage.jpg)
-
-![Error Page (Error Page)](./docs/localErrorPage.jpg)
-
 ## Deployment & Build Status
 
 This project is a hosted and deployed via Render. Render monitors this repository and will redploy on new commits.
 
-## Code Style
+## Design
 
-Elements of both functional programming and object-oriented programming are used in this project.
-
+Simple white, black and grey color scheme. Dark mode is supported. The UI is designed to be visually pleasing and easy to use. The UI is designed to be responsive. The UI is designed to be intuitive and easy to use.
 
 ## Technologies, Languages, Libraries & Platforms Used
+
+Elements of both functional programming and object-oriented programming are used in this project. Functional React components are used where possible. The React Router library is used to handle routing. The React Bootstrap library is used to handle styling. The Moment.js library is used to format dates. The Firebase Auth library is used to handle user authentication. The Create React App library is used to create the React boilerplate.
 
 ### Core Technologies
 
@@ -59,7 +46,6 @@ Elements of both functional programming and object-oriented programming are used
 
 - Firebase Auth (Authentication as a Service (AaaS))
 - Render (Cloud PaaS Platform)
-
 
 ## Features
 
@@ -211,7 +197,7 @@ mern-instagram-clone-ui
 
 ### Environment Variables
 
-- REACT_APP_BACKEND_API - the URL for the backend API
+- `REACT_APP_BACKEND_API` - the URL for the backend API
 
 ### Backend API & API Documentation
 
@@ -257,7 +243,7 @@ user = {
 | *                 | NotFound | NotFound Route - Returns a not found error message when a user navigates to an invalid route. |
 
 
-## Installation Instructions (***UPDATE ME***)
+## Installation Instructions
 
 **Step 1: Clone the repository**
 
@@ -274,7 +260,7 @@ Run the following code in your terminal to download the code:
 
 **Step 3: Configure the application**
 
-Create a .env file in the root directory of the project and add the REACT_APP_BACKEND_API variable to the .env file. The REACT_APP_BACKEND_API variable should be set to the URL of the backend API. For example: REACT_APP_BACKEND_API=http://localhost:3001. If you are using the backend API that is deployed to Render, the REACT_APP_BACKEND_API variable should be set to https://mern-instagram-clone-api.onrender.com.
+Create a `.env` file in the root directory of the project and add the REACT_APP_BACKEND_API variable to the .env file. The `REACT_APP_BACKEND_API` variable should be set to the URL of the backend API. For example: `REACT_APP_BACKEND_API=http://localhost:3001`. If you are using the backend API that is deployed to Render, the `REACT_APP_BACKEND_API` variable should be set to `https://mern-instagram-clone-api.onrender.com`.
 
 **Step 4: Start the application**
 
