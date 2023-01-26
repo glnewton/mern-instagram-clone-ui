@@ -1,6 +1,5 @@
 import './loginPage.css';
 
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -11,7 +10,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase';
 
-const LoginPage = ({ setIsLoggedIn, darkMode, setDarkMode }) => {
+const LoginPage = ({ setIsLoggedIn, darkMode }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -36,10 +35,8 @@ const LoginPage = ({ setIsLoggedIn, darkMode, setDarkMode }) => {
 
     return (
         <>
-            {/* <main className="loginPage"> */}
+
             <main className={`loginPage ${darkMode ? 'loginPage-dark-mode' : ''}`}>
-                    {/* <Container> */}
-                    {/* <Form className='p-5 square border col-sm-4  mx-auto my-auto h-auto bg-white' > */}
                     <Form className={`loginForm p-5 square border col-sm-4 mx-auto my-auto h-auto ${darkMode ? 'loginForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Login </h1>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -68,9 +65,7 @@ const LoginPage = ({ setIsLoggedIn, darkMode, setDarkMode }) => {
                             </NavLink>
                         </Form.Text>
                     </Form>
-                    {/* </Container> */}
             </main>
-
         </>
     )
 }

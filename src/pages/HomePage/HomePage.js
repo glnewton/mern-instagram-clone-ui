@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { auth } from '../../services/firebase';
 
-
-
 const HomePage = ({ darkMode, setDarkMode }) => {
     const navigate = useNavigate();
 
@@ -28,7 +26,6 @@ const HomePage = ({ darkMode, setDarkMode }) => {
         return () => unsubscribe();
     }, []);
     console.log("Home Page darkMode: ", darkMode);
-//Conditionally render the MessageFeed component depending on whether the user is logged in. If not display a message to the user to log in or register.
     return (
         <div className={`homePage ${darkMode ? 'homePage-dark-mode' : ''}`}>
             <h1 className="mt-3">Home Page</h1>

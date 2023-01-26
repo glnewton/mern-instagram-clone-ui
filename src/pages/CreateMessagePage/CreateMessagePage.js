@@ -19,13 +19,13 @@ export default function CreateMessagePage({darkMode, setDarkMode}) {
 
     let currentDateTime = moment().format(); // 2021-09-15T20:00:00-04:00
 
-    //User state
+    // User state
     const [user, setUser] = useState(null);
     const [userID, setUserID] = useState(null);
     const [displayName, setDisplayName] = useState('');
     // const [userAvatar, setUserAvatar] = useState('')
 
-    //Message state
+    // Message state
     const [messagePhotoURL, setmessagePhotoURL] = useState('');
     const [message, setMessage] = useState('');
     const [createdDate, setCreatedDate] = useState('');
@@ -67,9 +67,7 @@ export default function CreateMessagePage({darkMode, setDarkMode}) {
 
     return (
         <>
-            {/* <main className="createMessagePage"> */}
             <main className={`createMessagePage ${darkMode ? "createMessagePage-dark-mode" : ""}`}>
-                {/* <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' > */}
                 <Form className={`createMessageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto ${darkMode ? "createMessageForm-dark-mode border-dark" : "bg-white"}`} >
                     <h1 className='mb-4'> Create Message </h1>
                     <img src={messagePhotoURL} alt="Fix your message" className="messageImage mb-3" />

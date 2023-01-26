@@ -1,5 +1,3 @@
-//const baseURL = 'http://localhost:3001/messages/'
-
 let baseURL = ""
 
 if (process.env.NODE_ENV === 'production') {
@@ -9,7 +7,7 @@ else {
     baseURL = 'http://localhost:3001' + "/messages/"
 }
 
-//Works
+
 const getAllMessages = async () => {
     try {
         const URL = `${baseURL}`
@@ -28,7 +26,7 @@ const getAllMessages = async () => {
         console.error(error)
     }
 }
-//Works
+
 const getMessage = async (id) => {
     try {
         const URL = `${baseURL}${id}`
@@ -41,7 +39,7 @@ const getMessage = async (id) => {
         console.error(error);
     }
 }
-//Works
+
 const deleteMessage = async (id) => {
     try {
         const URL = `${baseURL}${id}`;
@@ -56,7 +54,7 @@ const deleteMessage = async (id) => {
         console.error(error);
     }
 }
-//Works
+
 const editMessage = async (id, updatedMessage) => {
     try {
         const URL = `${baseURL}${id}`;
@@ -75,7 +73,7 @@ const editMessage = async (id, updatedMessage) => {
         console.error(error);
     }
 }
-//Works
+
 const createMessage = async (message) => {
     try {
         const URL = `${baseURL}`

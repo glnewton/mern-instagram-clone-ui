@@ -11,7 +11,7 @@ import { auth } from '../../services/firebase';
 import { getAuth, updateProfile } from "firebase/auth";
 
 
-const ProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode }) => {
+const ProfilePage = ({ isLoggedIn, currentUser, darkMode }) => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
@@ -56,10 +56,8 @@ const ProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode }) => {
 
     return (
         <>
-            {/* <main className="profilePage"> */}
             <main className={`profilePage ${darkMode ? 'profilePage-dark-mode' : ''}`}>
-                {/* <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' > */}
-                    <Form className={`profilePageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto h-auto w-auto ${darkMode ? 'profilePageForm-dark-mode border-dark' : 'bg-white'}`} >
+                <Form className={`profilePageForm p-5 mt-5 square border col-sm-4 mx-auto my-auto h-auto w-auto ${darkMode ? 'profilePageForm-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Update Your Profile </h1>
                     <Form.Group className="mb-2" controlId="formBasicDisplayName">
                         <Form.Label>Display Name</Form.Label>
@@ -102,8 +100,6 @@ const ProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode }) => {
 }
 
 export default ProfilePage;
-
-// Yes, Firebase User objects have unique ids that are generated when the user is created. These ids are called uid and can be accessed using the user.uid property. The uid is a string that is guaranteed to be unique across all users of your app, and is also guaranteed to be stable for the lifetime of a user (i.e. it will not change for a user even if the user changes their email or password). This makes it useful as a key for storing user-related data in your Firebase Realtime Database or Firestore.
 
 
 

@@ -1,13 +1,6 @@
-//import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "./navBar.css";
 // import profilePic from '../../images/testProfilePic.png';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
@@ -16,8 +9,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 import { auth } from '../../services/firebase';
-
-
 
 export default function NavBar2({ isLoggedIn, setIsLoggedIn, darkMode, setDarkMode }) {
     const navigate = useNavigate();

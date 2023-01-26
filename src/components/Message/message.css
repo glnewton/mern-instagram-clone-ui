@@ -174,7 +174,6 @@
   justify-content: space-around
 }
 
-
 .messageText {
   text-align: left;
   padding: 0 0.9375rem 0.5rem 0.9375rem;
@@ -186,8 +185,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 .card-body {
   padding: 0;

@@ -5,11 +5,12 @@ export default function CommentFeed({comments, messageId, removeComment, updateC
 
   return (
     <div className="CommentFeed">
-
-      {comments.filter(comment => comment.messageId === messageId)
+      {
+        comments.filter(comment => comment.messageId === messageId)
                .map(comment =>
                   <Comment key={comment._id} comment={comment} removeComment={removeComment} updateComments={updateComments} />
-      )}
+                )
+      }
     </div>
   )
 }

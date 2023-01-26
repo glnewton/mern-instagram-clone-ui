@@ -6,27 +6,22 @@ import './message.css';
 import profilePic from '../../images/testProfilePic.png';
 import testMessagePic from '../../images/testMessagePic.jpeg';
 
-
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { editMessage, deleteMessage } from "../../services/messages-api.js";
 
 import CommentFeed from '../CommentFeed/CommentFeed';
-import { createComment, getAllComments, getAllCommentsByMessage } from "../../services/comments-api.js";
+import { createComment, getAllComments } from "../../services/comments-api.js";
 
-import { getAuth, updateProfile } from "firebase/auth"
+import { getAuth } from "firebase/auth"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
-//import getImageViaProxy from '../../services/get-image-via-proxy.js';
 
-const baseURL = process.env.REACT_APP_BACKEND_API + "/images" || "http://localhost:3001/images"
-
-export default function Message({ element, darkMode, setDarkMode }) {
+export default function Message({ element, darkMode }) {
   // console.log(element);
-
   const nav = useNavigate()
   const location = useLocation();
   const isViewMessagePage = location.pathname.startsWith('/view-message/');
@@ -34,7 +29,6 @@ export default function Message({ element, darkMode, setDarkMode }) {
   const [imageUrl, setImageUrl] = useState(element.imageUrl);
   const [likes, setLikes] = useState(element.likes);
   const [numberOfComments, setNumberOfComments] = useState(element.comments);
-
 
   const [addCommentText, setAddCommentText] = useState("");
   const [comments, setComments] = useState([]);
@@ -131,6 +125,7 @@ export default function Message({ element, darkMode, setDarkMode }) {
     <>
       <Card className={`message ${darkMode ? 'message-dark-mode border-dark' : ''}`}>
         <Card.Body>
+
           <Card.Header className="messageHeader">
             <div className="author">
               <img className="authorImage" src={imageUrl || element.photoURL || profilePic} alt="AuthorIcon" crossOrigin="anonymous" />
@@ -150,7 +145,7 @@ export default function Message({ element, darkMode, setDarkMode }) {
               <div className="status">
                 <FontAwesomeIcon icon={faHeart} onClick={handleHeartClick} />
                 <div className="likes">{likes} likes</div>
-                <div className="totalComments">{numberOfComments || 0} comments</div>
+                <div className="totalComments">{numberOfComments || 0} comments</div> //   {/* const commentText = numComments === 1 ? "comment" : "comments"; */}
               </div>
             </div> {/*end of messageInfo*/}
 
@@ -158,7 +153,6 @@ export default function Message({ element, darkMode, setDarkMode }) {
               <div className="messageTextLine">
                 <b>{element.userName}</b> {element.message}
               </div>
-              {/* <hr/> */}
             </Card.Title> {/*end of messageText*/}
 
             <div className="commentSection">
@@ -169,43 +163,37 @@ export default function Message({ element, darkMode, setDarkMode }) {
                 <Form className='mt-3 mb-3'>
                   <div className="commentInput">
                     <Form.Group className="col-7" controlId="formBasicComment">
-                      <Form.Control  type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
+                      <Form.Control type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
                     </Form.Group>
                     <Button className="col-2.5" onClick={handleAddComment}>Add Comment </Button>
                   </div>
                 </Form>
-
-                {/* <div className="commentInput">
-                  <input type="text" placeholder="Add a comment..." value={addCommentText} onChange={(e) => setAddCommentText(e.target.value)} />
-                  <Button onClick={handleAddComment}>Add Comment </Button>
-                </div> end of commentInput */}
               </div> {/*end of addCommentSection*/}
             </div> {/*end of commentSection*/}
 
             {isViewMessagePage && (
               <>
-              <hr className="mw-80 m-auto"/>
-              <div className="messageOptionButtons">
-                <Link to={`/view-message/${element._id}`}>
-                  <Button variant="info">View</Button>
-                </Link>
-                <Link to={`/edit-message/${element._id}`}>
-                  <Button variant="warning">Edit</Button>
-                </Link>
-                <Button variant="danger" onClick={deleteTheMessage} >
-                  Delete
-                </Button>
-              </div>
+                <hr className="mw-80 m-auto" />
+                <div className="messageOptionButtons">
+                  <Link to={`/view-message/${element._id}`}>
+                    <Button variant="info">View</Button>
+                  </Link>
+                  <Link to={`/edit-message/${element._id}`}>
+                    <Button variant="warning">Edit</Button>
+                  </Link>
+                  <Button variant="danger" onClick={deleteTheMessage} >
+                    Delete
+                  </Button>
+                </div>
               </>
             )
             } {/*end of messageOptions*/}
           </Card.Footer> {/*end of messageFooter*/}
+
         </Card.Body>
       </Card> {/*end of message*/}
     </>
   );
 }
 
-//   const commentText = numComments === 1 ? "comment" : "comments";
 
-//:(const messageOptions = document.querySelector('.messageOptions');  messageOptions.classList.add('buffer');) 

@@ -56,9 +56,7 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode })
 
     return (
         <>
-            {/* <main className="completeProfilePage"> */}
             <main className={`completeProfilePage ${darkMode ? 'completeProfilePage-dark-mode' : ''}`}>
-                {/* <Form className='p-5 mt-5 square border col-sm-4 mx-auto my-auto bg-white h-auto w-auto' > */}
                 <Form className={`completeProfileForm p-5 mt-5 square border col-sm-4 mx-auto my-auto h-auto w-auto ${darkMode ? 'completeProfilePage-dark-mode border-dark' : 'bg-white'}`} >
                     <h1 className='mb-5'> Finish Setting Up Your Profile </h1>
                     <Form.Group className="mb-2" controlId="formBasicDisplayName">

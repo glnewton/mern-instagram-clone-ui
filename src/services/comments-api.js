@@ -1,4 +1,4 @@
-//const baseURL = 'http://localhost:3001/comments/'
+
 
 let baseURL = ""
 
@@ -42,7 +42,7 @@ const getComment = async (commentId) => {
     }
 }
 
-// Gets all comments by userId
+// Gets all comments by userId - used to get all comments by a specific user - UNTESTED/NOT USED
 const getAllCommentsByUser = async (userId) => {
     try {
         const URL = `${baseURL}user/${userId}`
@@ -57,7 +57,7 @@ const getAllCommentsByUser = async (userId) => {
 }
 
 
-// Gets all comments by messageId
+// Gets all comments by messageId - used to get all comments for a single post - UNTESTED/NOT USED
 const getAllCommentsByMessage = async (messageId) => {
     try {
         const URL = `${baseURL}message/${messageId}`
@@ -70,19 +70,6 @@ const getAllCommentsByMessage = async (messageId) => {
         console.error(error);
     }
 }
-
-// 
-// create the route in the backend
-// router.get('/comments/user/:userId', async (req, res) => {
-//     try {
-//         const foundComments = await Comment.find({ user: req.params.userId });
-//         res.json(foundComments);
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// });
-
-
 
 // Deletes a single comment
 const deleteComment = async (id) => {

@@ -14,12 +14,7 @@
 }
 
 .loginForm{
-    /* margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
+
 }
 
 form {
@@ -35,24 +30,13 @@ form {
 }
 
 .loginFormFields > p{
-    /* display: block; */
-
     text-align: left;
 }
 
 .loginFormButtons{
     display: flex;
     justify-content: space-around;
-
 }
-
-
-/* .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-} */
 
 .loginPage{
     display: flex;
