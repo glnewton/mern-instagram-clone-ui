@@ -14,31 +14,31 @@ This is the front-end UI for the MERN stack Instagram Clone. It uses React as th
 
 ## Screenshots
 
-![Login Page](./docs/loginPage.jpg)
+![Login Page](./src/docs/loginPage.jpg)
 
-![Sign Up Page](./docs/signUpPage.jpg)
+![Sign Up Page](./src/docs/signUpPage.jpg)
 
-![Complete Profile Page](./docs/completeProfilePage.jpg)
+![Complete Profile Page](./src/docs/completeProfilePage.jpg)
 
-![Update Profile Page](./docs/updateProfilePage-HalfDesktop.jpg)
+![Update Profile Page](./src/docs/updateProfilePage-HalfDesktop.jpg)
 
-![Update Profile Page 2](./docs/updateProfilePage-HalfDesktop-Dark.jpg)
+![Update Profile Page 2](./src/docs/updateProfilePage-HalfDesktop-Dark.jpg)
 
-![Home Page](./docs/homePage-HalfDesktop.jpg)
+![Home Page](./src/docs/homePage-HalfDesktop.jpg)
 
-![Home Page 2](./docs/homePage-Tablet-Dark.jpg)
+![Home Page 2](./src/docs/homePage-Tablet-Dark.jpg)
 
-![View Message Page](./docs/viewMessagePage-HalfDesktop.jpg)
+![View Message Page](./src/docs/viewMessagePage-HalfDesktop.jpg)
 
-![View Message Page 2](./docs/viewMessagePage-HalfDesktop-Dark.jpg)
+![View Message Page 2](./src/docs/viewMessagePage-HalfDesktop-Dark.jpg)
 
-![Create Message Page](./docs/createMessagePage.jpg)
+![Create Message Page](./src/docs/createMessagePage.jpg)
 
-![Create Message Page 2](./docs/createMessagePage-Dark.jpg)
+![Create Message Page 2](./src/docs/createMessagePage-Dark.jpg)
 
-![Edit Message Page](./docs/editMessagePage-HalfDesktop.jpg)
+![Edit Message Page](./src/docs/editMessagePage-HalfDesktop.jpg)
 
-![Edit Comments Display](./docs/editCommentsDisplay.jpg)
+![Edit Comments Display](./src/docs/editCommentsDisplay.jpg)
 
 ## Deployment & Build Status
 
