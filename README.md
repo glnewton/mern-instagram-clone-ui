@@ -28,11 +28,11 @@ This is the front-end UI for the MERN stack Instagram Clone. It uses React as th
 
 ### Update Profile Page
 
-![Update Profile Page](./src/docs/updateProfilePage-HalfDesktop.jpg)
+![Update Profile Page](./src/docs/updateProfilePage-Halfdesktop.jpg)
 
 ### Update Profile Page 2
 
-![Update Profile Page 2](./src/docs/updateProfilePage-HalfDesktop-Dark.jpg)
+![Update Profile Page 2](./src/docs/updateProfilePage-Halfdesktop-Dark.jpg)
 
 ### Home Page
 
