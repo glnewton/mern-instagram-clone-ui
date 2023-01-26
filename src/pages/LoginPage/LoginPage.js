@@ -11,7 +11,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase';
 
-
 const LoginPage = ({ setIsLoggedIn, darkMode, setDarkMode }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');

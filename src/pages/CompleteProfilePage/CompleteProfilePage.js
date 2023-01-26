@@ -70,21 +70,6 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode })
                         <Form.Label>Photo URL</Form.Label>
                         <Form.Control type="text" placeholder="Add a URL to your profile picture (from Amazon.com)..." value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
                     </Form.Group>
-
-                    {/* <Form.Group className="mb-2" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-2" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-2" controlId="formBasicNewPassword">
-                        <Form.Label>New Password</Form.Label>
-                        <Form.Control type="password" placeholder="New Password" onChange={(e) => setNewPassword(e.target.value)} />
-                    </Form.Group> */}
                     <Button variant="primary" type="submit" onClick={handleUpdateProfile}>
                         Complete Profile
                     </Button>
@@ -96,7 +81,6 @@ const CompleteProfilePage = ({ isLoggedIn, currentUser, darkMode, setDarkMode })
 
 export default CompleteProfilePage;
 
-// Yes, Firebase User objects have unique ids that are generated when the user is created. These ids are called uid and can be accessed using the user.uid property. The uid is a string that is guaranteed to be unique across all users of your app, and is also guaranteed to be stable for the lifetime of a user (i.e. it will not change for a user even if the user changes their email or password). This makes it useful as a key for storing user-related data in your Firebase Realtime Database or Firestore.
 
 
 
