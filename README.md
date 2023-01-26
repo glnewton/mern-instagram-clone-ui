@@ -180,7 +180,7 @@ mern-instagram-clone-ui
 
 ```
 
-### Files & Directories
+### Files 
 
 ```txt
 - .env - contains environment variables for the app
