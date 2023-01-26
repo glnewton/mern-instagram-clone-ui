@@ -2,6 +2,8 @@
 import "./navBar.css";
 // import profilePic from '../../images/testProfilePic.png';
 
+import Form from 'react-bootstrap/Form'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
