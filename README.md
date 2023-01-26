@@ -337,7 +337,7 @@ The app will now be running at <http://localhost:3000> by default.
 4. Add the firebase npm package to the project by running `npm install firebase` in the terminal.
 5. Copy the Firebase config object from the Firebase console to a firebase.js file in the `services` folder.
 
-![Firebase Config Object](./src/docs/firebaseCon.jpg)
+![Firebase Config Object](./src/docs/firebaseConfig.jpg)
 
 ## API Functionality
 
