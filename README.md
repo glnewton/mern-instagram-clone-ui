@@ -322,6 +322,23 @@ Create a `.env` file in the root directory of the project and add the REACT_APP_
 
 The app will now be running at <http://localhost:3000> by default.
 
+## Firebase Account Setup, New Project, New Web App, and Authentication Setup
+
+1. Create a Firebase account at <https://firebase.google.com/>.
+2. Create a new project in the Firebase console.
+3. Add a new web app to the project.
+
+![Firebase New Project](./src/docs/firebaseNewProject.jpg)
+
+4. Enable the Firebase Authentication service in the Firebase console. <https://firebase.google.com/docs/auth>
+
+![Firebase New Web App](./src/docs/firebaseNewWebAppAndAuth.jpg)
+
+4. Add the firebase npm package to the project by running `npm install firebase` in the terminal.
+5. Copy the Firebase config object from the Firebase console to a firebase.js file in the `services` folder.
+
+![Firebase Config Object](./src/docs/firebaseCon.jpg)
+
 ## API Functionality
 
 1. API can performa basic CRUD operations for MESSAGES and COMMENTS.
@@ -360,6 +377,7 @@ The app will now be running at <http://localhost:3000> by default.
 ## Resources
 
 - Tishana TDL Express/React
+- https://www.freecodecamp.org/news/use-firebase-authentication-in-a-react-app/
 
 ## Disclaimer
 
