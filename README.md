@@ -182,6 +182,7 @@ mern-instagram-clone-ui
 
 ### Files & Directories
 
+```txt
 - .env - contains environment variables for the app
 - index.js - the entry point for the app, where the app is rendered to the DOM
 - App.js - the root component for the app, where the app's routes are defined
@@ -252,6 +253,7 @@ mern-instagram-clone-ui
 - images/ - contains the images for the app
 - images/testMessagePic.jpg - a test image for the app
 - images/testProfilePic.jpg - a test image for the app
+```
 
 ### Environment Variables
 
