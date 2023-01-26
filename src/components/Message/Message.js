@@ -145,7 +145,7 @@ export default function Message({ element, darkMode }) {
               <div className="status">
                 <FontAwesomeIcon icon={faHeart} onClick={handleHeartClick} />
                 <div className="likes">{likes} likes</div>
-                <div className="totalComments">{numberOfComments || 0} comments</div> //   {/* const commentText = numComments === 1 ? "comment" : "comments"; */}
+                <div className="totalComments">{numberOfComments || 0} comments</div>   {/* const commentText = numComments === 1 ? "comment" : "comments"; */}
               </div>
             </div> {/*end of messageInfo*/}
 
